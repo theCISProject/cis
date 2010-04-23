@@ -8,7 +8,7 @@
 ##		- Charge carries charges list or single charge?
 
 from django.db import models
-from cis.report.models import Accused
+from cis.book.models import Accused
 
 # Create your models here.
 class Evidence(models.Model):

@@ -3,7 +3,7 @@
 
 from django.db import models
 
-from cis.report.models import Book
+from cis.book.models import Report
 
 
 class Information(models.Model):
@@ -16,7 +16,7 @@ class Information(models.Model):
         ('F', 'Female'),
     )
 
-    personal_information = models.OneToOneField(Book)
+    personal_information = models.OneToOneField(Report)
     name = models.CharField( verbose_name="Full name", max_length=80,help_text="Person's first, middle(if present) and last name")
     sex = models.CharField( verbose_name="Sex", max_length=6, choices= GENDER_CHOICES,help_text="Person's gender, Male/Female",default=GENDER_CHOICES[0])
     age = models.IntegerField( verbose_name="Age", max_length=3,help_text="Person's age")
