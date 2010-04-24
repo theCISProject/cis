@@ -1,0 +1,90 @@
+FANCY FEATURES
+Allerts on overshoots from normal trends of offenses
+
+GeoDJANGO
+Incorporation of GeoDjango for the maps
+
+REPORTS
+Reports app that will base mainly on generating statistical
+reports from the offense informations juiced out of report books
+from local police stations/departments.
+
+GRAPHICS
+Applications for generating charts, diagrams and other
+pictorial representation of statistical data juiced out
+of the stored informations.
+
+PENDING MATTERS
+1.	Detailed picture and sample of sort of informations submitted
+	monthly to district level, (necessary to put the pieces together)
+	
+2.	From which rank do they start to sort out informations taken from
+	police stations, that includes classifying them between offense
+	categories, i.e. Major or Minor offense and type of offense
+	ranging from criminal, civil, etc.
+	And getting right the whole crime/offense classification issue.
+	
+3.	How do they write monthly reports, kinds of statistics they perform
+	and the kinds of data that are left(not taken higher) with the local
+	police station. Sample will be needed too.
+
+4.	List of offenses that demand daily reporting or urgency, and sample
+	of offenses reported, and first warning messages.
+	We need these to capture the proper data structure for our system model
+	objects.
+
+
+KINDS OF VALUABLE INFORMATION TO ACQUIRE:
+1.	Extact Set of actions taken for each report
+2.	What happens incase of offense reporter wants to be anonymous.
+3.	Out of their awareness(if any) do they say type of crime in report detial
+	in report book section.
+4.	Sample data on monthly serial number from Original report book
+5.	Sample data on investigaton number from Original report book
+6.	Exact case status set (case closed/opened etc..) from Original report book
+	is the set of statuses open for expansion, i.e. more statuses can be added
+7.	In nationality do they take Tribes for tanzanians and nationality for foreign
+	or just tanzanian and other nationalities for anyone.
+8.	What do they say, if we incorporate more person's addresses, like
+	phone number, e-mail address, voter's id, bank account if any.
+9.	Dialog about relationship between details of the report, whether
+	- Must details of reported offense be matched to reporter(witness)
+	  to get incriminate him/her incase of implanting evidence? or how
+	  do they do that.
+	- Can more than one person report the same offense, with their own
+	  details of the offense.
+	- What about anonymity of reporter, is it an option, can people choose
+	  to report anonymous. How worth are the details of the crime. from
+	  anonymous person.
+10. Can accused persons be more than one person, are they all recorded for
+	the same reported offense.
+	- Are the information, full name, sex, nationality, postal address enough
+	  or it will be prudent to store more information if any like, phone number
+	  e-mail address, voter's id number, bank account number if any.
+11.	Exact set of arrest statuses.
+12. When offense is reported and written, must they get name of accused?
+	or some reports don't have accused persons
+13. Must they take action for each offense reported or some go without
+	action being done.
+14.	Must they get details for the reported offense, or some reports
+	goes without details documented.
+
+15.	What's an IR Number, we need sample data for it. to get data structure
+16.	What's the essense of RB Number, and we need sample data too.
+17.	Is the complainant name among persons who report the crime?
+	or how do they get to have his information? apart from his name.
+18.	How do they keep information about the detective for the investigation
+
+19.	Is the evidence book linked to each investigation opened?
+20.	We need to know sort of information store in minute sheet, charges
+	date.
+21.	We need exact set of remarks that are placed in evidence book, format
+	of an RB Number, is Information about the accused the same information
+	that is recorded in report book. (what if there's no accused), is it
+	necessary to have accused for investigation to open, or investigation
+	can proceed without an accused.
+22.	What kind of information does total value hold in evidence book.
+23.	What does criminal case number mean, and what does it relate to.
+
+24.	In property details inside report book, what kind of property do they
+	record, properties found at the crime, lost, or what exactly.

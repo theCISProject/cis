@@ -20,7 +20,7 @@ MANAGERS = ADMINS
 DATABASE_ENGINE = 'mysql'				# 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
 DATABASE_NAME = 'cis'			# Using this for mysql db system
 DATABASE_USER = 'root'           # Using this for mysql db system
-DATABASE_PASSWORD = ''       # Using this for mysql db system
+DATABASE_PASSWORD = 'root'       # Using this for mysql db system
 DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
 DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
 
@@ -90,7 +90,7 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.sites',
+    #'django.contrib.sites',
     'django.contrib.admin',
     'cis.personal',
     'cis.book',
