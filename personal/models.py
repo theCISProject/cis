@@ -15,8 +15,11 @@ class Information(models.Model):
         ('M', 'Male'),
         ('F', 'Female'),
     )
-
-    personal_information = models.OneToOneField(Report)
+	#	One to many relationship, more than one person can
+	#	report same offense in the report book
+	#	We haven't account anonymity on offenses reporters some wants to
+	#	to be anonymous
+    report = models.ForeignKey(Report)
     name = models.CharField( verbose_name="Full name", max_length=80,help_text="Person's first, middle(if present) and last name")
     sex = models.CharField( verbose_name="Sex", max_length=6, choices= GENDER_CHOICES,help_text="Person's gender, Male/Female",default=GENDER_CHOICES[0])
     age = models.IntegerField( verbose_name="Age", max_length=3,help_text="Person's age")

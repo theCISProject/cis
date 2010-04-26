@@ -7,11 +7,14 @@ from django.db import models
 #       geographical location.
 
 class LocationType(models.Model):
+    """
+	What do you mean by location type? make some clarifications here?
+    """
     name = models.CharField(max_length=100)
 
 
     class Meta:
-        verbose_name = "Type"
+        verbose_name = "Location Type"
 
     def __unicode__(self):
         return self.name
@@ -38,7 +41,8 @@ class Location(models.Model):
         return self.name
 
 class Station(models.Model):
-    """ A Station is a police station where crimes a reported.
+    """
+	A Station is a police station where crimes a reported.
     """
     name = models.CharField(max_length=80, help_text='Police Station name')
     code = models.CharField(max_length=80, blank=True, null=True)
@@ -48,3 +52,6 @@ class Station(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    class Meta:
+        verbose_name = "Police Station"
