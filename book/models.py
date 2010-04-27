@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
+
 #from django.auth.models import User
 
 #	TODO:
@@ -39,23 +40,38 @@ class Report(models.Model):
 
 class Detail(models.Model):
     '''
-        Details of the report
+        Details of the report.
+        Has one to many relationship with a report in local Police station
+        report book. i.e. Same offense reported can be described differently
+        by different reporters (witness).
+        Which is why we need their information, and officer incharge, can
+        be incriminating if false witness is reported.
     '''
     #	Needs expansion
     #	Type of crimes
     #   @response:: type of crimes check cis.offenses
-
-    report_detail = models.OneToOneField(Report, verbose_name="Report Details")
+    
+    #	If i put this class on top model cant be processed because
+    #	cis.personal.models contain 'from cis.book.models import Report'
+    #	line which calls Report that ain't declared before the this line
+    #	this is the only ugly hack, to put it below 'Report' that is called
+    #	in 'from cis.book.models import Report' in personal.models.
+    from cis.personal.models import Information
+    report = models.ForeignKey(Report, verbose_name="Report Details")
     description = models.TextField(verbose_name="Description",help_text="Description of the reported crime")
-    reporter_signature = models.CharField(verbose_name="Reporter's signature", max_length=80, help_text="Signature of the person reporting crime")
-    officer_signature = models.CharField(verbose_name="Officer's signature", max_length=80, help_text="Signature of the officer receiveing the report")
+    #	Detail of offenses offered by personnel should be unique to ech person.
+    #	i.e. each detail should be linked to only one reporter hence one to one relationship.
+    reporter_information = models.OneToOneField(Information,verbose_name="Reporter's information", max_length=80, help_text="Information of the person reporting the crime")
+    officer_name = models.CharField(verbose_name="Officer's name", max_length=80, help_text="Name of the officer receiveing the report")
 
     def __unicode__(self):
         return self.description
 
 class Action(models.Model):
     '''
-        Detailed information of action taken
+        Detailed information of action taken.
+        Has One to One relationship with report in local Police station
+        Report book. i.e. Only one action can be done to an offense report.
     '''
 
     STATUS_CHOICES = (
@@ -69,7 +85,9 @@ class Action(models.Model):
         ('2','Refused'),
         ('3','E.t.c.'),
     )
-    action = models.ForeignKey(Report, verbose_name="Action details",blank=True)
+    #	One to One relationship, only one action can be done to each report
+    #	atleast i think so for now.
+    report = models.OneToOneField(Report, verbose_name="Action details",blank=True)
     status = models.CharField(verbose_name="Status", max_length=80, choices=STATUS_CHOICES,help_text="Action status")
     officer_name = models.CharField(verbose_name="Officer's Name", max_length=80,help_text="Name of police officer taking initial action")
     final_disposal = models.CharField(verbose_name="Final Disposal", max_length=80, choices=FINAL_DISPOSAL_CHOICES,help_text="Final report disposal status")
@@ -79,13 +97,18 @@ class Action(models.Model):
 
 class Accused(models.Model):
     '''
-        Person proceeding against
+        Person proceeding against.
+        Has many to one relationship with the report in local Police
+        Station report book. i.e. a criminal can have accomplice, or
+        a group of accused perons.
     '''
     GENDER_CHOICES= (
             ('M', 'Male'),
             ('F', 'Female'),
     )
-    accused = models.ForeignKey(Report,blank=True)
+    #	Many to one relationship, many can be accused, i.e. accomplices
+    #	for the same offense report
+    report = models.ForeignKey(Report,blank=True)
     name = models.CharField( verbose_name="Full name", max_length=80,help_text="Person's first, middle(if present) and last name")
     sex = models.CharField( verbose_name="Sex", max_length=6, choices= GENDER_CHOICES,help_text="Person's gender, Male/Female")
     nationality = models.CharField( verbose_name="Nationality/Tribe", max_length=80,help_text="Person's Nationality or Tribe", default="Tanzanian")
@@ -110,7 +133,10 @@ class Accused(models.Model):
 
 class Arrest(models.Model):
     '''
-        Whether criminal has been arrested or not
+        Whether criminal has been arrested or not.
+        Has one to many relationship with the Report in local Police
+        Station report book. i.e. Many can be arrested for a single
+        offense reported.
     '''
 
     ARREST_CHOICES = (
@@ -118,8 +144,10 @@ class Arrest(models.Model):
             ('Not Arrested','Not arrested'),
             ('Released','Released'),
     )
-
-    arrest = models.ForeignKey(Report,blank=True)
+	
+	#	Many to one relationship, many can be arrested for a single
+	#	offense report
+    report = models.ForeignKey(Report,blank=True)
     status = models.CharField(verbose_name="Status", max_length=80, choices=ARREST_CHOICES,help_text="Arrest status")
     name = models.CharField(verbose_name="Name", max_length=80,help_text="Name of person who arrested the accused")
     ppr_number = models.CharField(verbose_name="Name", max_length=80,help_text="P.P.R. Number")
