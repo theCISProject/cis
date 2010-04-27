@@ -104,6 +104,7 @@ class Accused(models.Model):
 
     class Meta:
         verbose_name_plural = 'accused'
+
     def __unicode__(self):
         return self.name
 
