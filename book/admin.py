@@ -27,7 +27,7 @@ from cis.personal.models import Information
 
 class InformationInline(admin.StackedInline):
 	model = Information
-	extra = 1
+	extra = 2
 
 class InformationAdmin(admin.ModelAdmin):
 	pass

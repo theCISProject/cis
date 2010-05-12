@@ -25,6 +25,10 @@ from django.contrib import admin
 from cis.personal.models import Information
 
 class InformationAdmin(admin.ModelAdmin):
+#        fieldsets = (
+#            (None , {
+#                    'fields' : ('name', 'sex', 'age')}),
+#        )
 	list_display = ('name', 'sex', 'age', 'nationality', 'occupation',
 					'phone_number', 'e_mail', 'voter_id')
 

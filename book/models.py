@@ -87,7 +87,7 @@ class Action(models.Model):
     )
     #	One to One relationship, only one action can be done to each report
     #	atleast i think so for now.
-    report = models.OneToOneField(Report, verbose_name="Action details",blank=True)
+    report = models.OneToOneField(Report, verbose_name="Report",blank=True)
     status = models.CharField(verbose_name="Status", max_length=80, choices=STATUS_CHOICES,help_text="Action status")
     officer_name = models.CharField(verbose_name="Officer's Name", max_length=80,help_text="Name of police officer taking initial action")
     final_disposal = models.CharField(verbose_name="Final Disposal", max_length=80, choices=FINAL_DISPOSAL_CHOICES,help_text="Final report disposal status")
@@ -149,7 +149,7 @@ class Arrest(models.Model):
     report = models.ForeignKey(Report,blank=True)
     status = models.CharField(verbose_name="Status", max_length=80, choices=ARREST_CHOICES,help_text="Arrest status")
     name = models.CharField(verbose_name="Name", max_length=80,help_text="Name of person who arrested the accused")
-    ppr_number = models.CharField(verbose_name="Name", max_length=80,help_text="P.P.R. Number")
+    ppr_number = models.CharField(verbose_name="PPR Number", max_length=80,help_text="P.P.R. Number")
 
     def isAccusedArrested(self):
         if self.status == '2':

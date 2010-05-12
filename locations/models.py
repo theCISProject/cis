@@ -8,7 +8,7 @@ from django.db import models
 
 class LocationType(models.Model):
     """
-	What do you mean by location type? make some clarifications here?
+	@Allen: What do you mean by location type? make some clarifications here?
     """
     name = models.CharField(max_length=100)
 

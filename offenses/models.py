@@ -14,7 +14,7 @@ class Category(models.Model):
     type = models.CharField(max_length=80,choices=TYPE_CHOICES)
 
     class Meta:
-        verbose_name_plural = 'categories'
+        verbose_name_plural = 'Categories'
 
     def __unicode__(self):
         return self.name
