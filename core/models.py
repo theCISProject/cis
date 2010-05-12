@@ -17,3 +17,9 @@ class Zone(models.Model):
 
     def __unicode__(self):
         return self.name
+
+class Police(User):
+    """
+        A Web ui user, who can see data or be and administrator.
+    """
+    zone = models.ForeignKey(Zone)
