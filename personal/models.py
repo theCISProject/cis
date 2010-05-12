@@ -32,7 +32,11 @@ class Information(models.Model):
     phone_number = models.CharField(verbose_name="Phone Number", blank=True, max_length=80,help_text="Person's Mobile phone number")
     e_mail = models.CharField(	verbose_name="E-Mail Adress", blank=True, max_length=80,help_text="Person's E-Mail address")
     voter_id = models.IntegerField( verbose_name="Voter's Id Number", blank=True, null=True, max_length=8,help_text="Identification number from your voter's id card")
-    
+
+    class Meta:
+        verbose_name = "reporter's information"
+        verbose_name_plural = "reporters' information"
+
     def __unicode__(self):
         information_summary= "Name: %s\nSex: %s\nAge: %s" % (self.name, self.sex, self.age )
         return information_summary

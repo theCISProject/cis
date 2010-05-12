@@ -9,7 +9,7 @@ from core.models import Zone
 
 class LocationType(models.Model):
     """
-	What do you mean by location type? make some clarifications here?
+	@Allen: What do you mean by location type? make some clarifications here?
     """
     name = models.CharField(max_length=100)
 
