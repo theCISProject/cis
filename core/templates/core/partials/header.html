@@ -1,0 +1,11 @@
+{% load i18n %}
+<div id="currentlogin-block">
+  {% if user.is_authenticated %}        
+      Logged in as <strong>{{user}}</strong>
+      &nbsp;&nbsp;<a href="/admin/">Admin</a>&nbsp;&nbsp; |
+      &nbsp;&nbsp;<a href="{% url core.views.logout %}">{% trans "Log out" %}</a>
+  {%else%}
+      <a href="{% url core.views.login %}">{% trans "Log in" %}</a>
+  {%endif%}
+  
+</div>

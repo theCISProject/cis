@@ -17,9 +17,9 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASE_ENGINE = 'sqlite3'				# 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-DATABASE_NAME = 'cis.db'			# Using this for mysql db system
-DATABASE_USER = ''           # Using this for mysql db system
+DATABASE_ENGINE = 'mysql'				# 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+DATABASE_NAME = 'cis'			# Using this for mysql db system
+DATABASE_USER = 'root'           # Using this for mysql db system
 DATABASE_PASSWORD = ''       # Using this for mysql db system
 DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
 DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
@@ -54,7 +54,7 @@ MEDIA_ROOT = 'media'
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = '/static'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
@@ -75,15 +75,50 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 )
 
 ROOT_URLCONF = 'cis.urls'
+
+TEMPLATE_CONTEXT_PROCESSORS = [
+    "django.core.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.request",
+    "core.context_processors.base_template" # sticks the base template inside all responses
+]
+
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     'templates',
+)
+
+# this is the template that is used as the base for all
+# rapidsms pages.  if you want to totally restyle your pages
+# you should change this in your configuration .ini file
+BASE_TEMPLATE = (
+     "layout.html"
+)
+# This is a similar concept, but for templating the login
+# and logout screens
+LOGIN_TEMPLATE = (
+    "core/login.html"
+)
+
+LOGGEDOUT_TEMPLATE = (
+    "core/loggedout.html"
+)
+
+LOGIN_REDIRECT_URL = (
+    "/dashboard/"
+)
+
+BASE_TEMPLATE = (
+    "core/layout.html"
 )
 
 INSTALLED_APPS = (

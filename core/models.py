@@ -13,13 +13,34 @@ class Zone(models.Model):
         see data, reports, charts, etc.
     """
     name  = models.CharField(max_length=64, unique=True)
+    description = models.TextField()
+
+    # Propose to add a head to each zone to validate data
+    # submittion in their zone.. EXPERIMENTAL! (allen)
+    # head = models.ForeignKey(Police)
     # TODO:  Add more relevant fields
 
     def __unicode__(self):
         return self.name
 
-class Police(User):
+class PoliceProfile(User):
     """
         A Web ui user, who can see data or be and administrator.
     """
+    
+    # These roles do not depict real roles are just layed as sample
+    # and shuld be change ASAP.!
+    ROLES_CHOICES = (
+        ('ADM', 'Administrator'),
+        ('PR', 'Police Reporter'),
+        ('PA', 'Police Analyser'),
+        ('MN', 'Manager'),
+    )
+
     zone = models.ForeignKey(Zone)
+    # TODO: put a level feature apart from the one provided by
+    # django(admin, staff, active). eg Police reporter, Analyser, ...
+    Role = models.CharField(max_length=3, choices=ROLES_CHOICES)
+
+    def __unicode__(self):
+        return "%s %s" % (self.first_name, self.last_name)
