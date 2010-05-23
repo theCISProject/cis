@@ -3,7 +3,7 @@
 
 from django.db import models
 
-from cis.book.models import Report
+from book.models import Report
 
 
 class Information(models.Model):
@@ -15,10 +15,10 @@ class Information(models.Model):
         ('M', 'Male'),
         ('F', 'Female'),
     )
-	#	One to many relationship, more than one person can
-	#	report same offense in the report book
-	#	We haven't account anonymity on offenses reporters some wants to
-	#	to be anonymous
+#	One to many relationship, more than one person can
+#	report same offense in the report book
+#	We haven't account anonymity on offenses reporters some wants to
+#	to be anonymouss
     report = models.ForeignKey(Report)
     name = models.CharField( verbose_name="Full name", max_length=80,help_text="Person's first, middle(if present) and last name")
     sex = models.CharField( verbose_name="Sex", max_length=6, choices= GENDER_CHOICES,help_text="Person's gender, Male/Female",default=GENDER_CHOICES[0])

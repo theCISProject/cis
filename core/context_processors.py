@@ -1,5 +1,7 @@
 from django.conf import settings
 
+# Allen: depriciated soon to be re-placed with a better way..
+
 def base_template( request ):
     """This sticks the base_template variable defined in the settings
        into the request context, so that we don't have to do it in 

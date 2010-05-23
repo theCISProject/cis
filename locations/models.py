@@ -1,6 +1,4 @@
-from datetime import datetime
-
-from django.db import models
+from django.contrib.gis.db import models
 from core.models import Zone
 
 # TODO: Creating classes to for geographical locations
@@ -44,19 +42,19 @@ class Location(models.Model):
 
 class Station(models.Model):
     """
-<<<<<<< HEAD:locations/models.py
         A Station is a police station where crimes a reported.
-=======
-	A Station is a police station where crimes a reported.
->>>>>>> f8d452bd5686417992f604a2da39818684a1433a:locations/models.py
     """
     name = models.CharField(max_length=80, help_text='Police Station name')
-    code = models.CharField(max_length=80, blank=True, null=True)
+    code = models.CharField(max_length=80, unique=True, blank=True, null=True)
     zone = models.ForeignKey(Zone)
 
     location = models.ForeignKey(Location)
-    latitude  = models.DecimalField(max_digits=8, decimal_places=6, blank=True, null=True, help_text="The physical latitude of this location")
-    longitude = models.DecimalField(max_digits=8, decimal_places=6, blank=True, null=True, help_text="The physical longitude of this location")
+    # Longitude and Latitude are removed to add a geo point
+#    latitude  = models.DecimalField(max_digits=8, decimal_places=6, blank=True, null=True, help_text="The physical latitude of this location")
+#    longitude = models.DecimalField(max_digits=8, decimal_places=6, blank=True, null=True, help_text="The physical longitude of this location")
+#    TODO: implement a load.py to mapping
+    point = models.PointField()
+    manager = models.GeoManager()
 
     def __unicode__(self):
         return self.name
