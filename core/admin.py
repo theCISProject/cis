@@ -3,10 +3,7 @@
 
 from django.contrib import admin
 
-from cis.core.models import Zone, PoliceProfile
-
-#class ZoneAdmin(admin.ModelAdmin):
-#	pass
+from core.models import Zone, PoliceProfile
 
 admin.site.register(Zone)
 admin.site.register(PoliceProfile)

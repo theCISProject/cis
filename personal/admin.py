@@ -22,7 +22,7 @@
 #       MA 02110-1301, USA.
 
 from django.contrib import admin
-from cis.personal.models import Information
+from personal.models import Information
 
 class InformationAdmin(admin.ModelAdmin):
 #        fieldsets = (

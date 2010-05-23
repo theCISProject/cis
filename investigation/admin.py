@@ -3,7 +3,7 @@
 
 from django.contrib import admin
 
-from cis.investigation.models import *
+from investigation.models import *
 
 admin.site.register(Register)
 admin.site.register(Complainant)

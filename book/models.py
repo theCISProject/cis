@@ -56,7 +56,8 @@ class Detail(models.Model):
     #	line which calls Report that ain't declared before the this line
     #	this is the only ugly hack, to put it below 'Report' that is called
     #	in 'from cis.book.models import Report' in personal.models.
-    from cis.personal.models import Information
+    #TODO: check it out.. allen
+    from personal.models import Information
     report = models.ForeignKey(Report, verbose_name="Report Details")
     description = models.TextField(verbose_name="Description",help_text="Description of the reported crime")
     #	Detail of offenses offered by personnel should be unique to ech person.
@@ -144,9 +145,9 @@ class Arrest(models.Model):
             ('Not Arrested','Not arrested'),
             ('Released','Released'),
     )
-	
-	#	Many to one relationship, many can be arrested for a single
-	#	offense report
+    
+    #	Many to one relationship, many can be arrested for a single
+    #	offense report
     report = models.ForeignKey(Report,blank=True)
     status = models.CharField(verbose_name="Status", max_length=80, choices=ARREST_CHOICES,help_text="Arrest status")
     name = models.CharField(verbose_name="Name", max_length=80,help_text="Name of person who arrested the accused")
