@@ -2,6 +2,11 @@
 # -*- coding: utf-8 -*-
 
 #   Django settings for cis project.
+import os.path
+# getting the path of the project
+# to auto-detect the absolute path
+# of the tamplate folder, when project moved.
+PROJECT_DIR = os.path.dirname(__file__)
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -9,7 +14,7 @@ TEMPLATE_DEBUG = DEBUG
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),
     ('John F. Mukulu', 'john.f.mukulu@gmail.com'),
-    ('Allen M. Machary', 'allen_mach@gmail.com'),
+    ('Allen Machary', 'allen.machary@gmail.com'),
     ('Salome H. Maro', 'your_email@domain.com'),
     ('Irene Togolai', 'your_email@domain.com'),
     ('Amrany Mlawa', 'your_email@domain.com'),
@@ -17,18 +22,12 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASE_ENGINE = 'mysql'				# 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-DATABASE_NAME = 'cis'			# Using this for mysql db system
-DATABASE_USER = 'root'           # Using this for mysql db system
-DATABASE_PASSWORD = ''       # Using this for mysql db system
-DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
-DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
-
-#~ DATABASE_NAME = 'cis_information.db'	# Or path to database file if using sqlite3.
-#~ DATABASE_USER = ''             # Not used with sqlite3.
-#~ DATABASE_PASSWORD = ''         # Not used with sqlite3.
-#DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
-#DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
+DATABASE_ENGINE = 'mysql'       # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+DATABASE_NAME = 'cis'		# Using this for mysql db system
+DATABASE_USER = 'root'          # Using this for mysql db system
+DATABASE_PASSWORD = ''          # Using this for mysql db system
+DATABASE_HOST = ''              # Set to empty string for localhost. Not used with sqlite3.
+DATABASE_PORT = ''              # Set to empty string for default. Not used with sqlite3.
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -49,12 +48,12 @@ USE_I18N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = 'media'
+MEDIA_ROOT = ''
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = '/static'
+MEDIA_URL = ''
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
@@ -94,43 +93,31 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    'templates',
+    os.path.join(PROJECT_DIR, 'templates')
 )
 
 # this is the template that is used as the base for all
-# rapidsms pages.  if you want to totally restyle your pages
-# you should change this in your configuration .ini file
-BASE_TEMPLATE = (
-     "layout.html"
-)
+# cis pages.  if you want to totally restyle your pages
+BASE_TEMPLATE =  "core-layout.html"
+
 # This is a similar concept, but for templating the login
 # and logout screens
-LOGIN_TEMPLATE = (
-    "core/login.html"
-)
+LOGIN_TEMPLATE = "core/login.html"
 
-LOGGEDOUT_TEMPLATE = (
-    "core/loggedout.html"
-)
+LOGGEDOUT_TEMPLATE = "core/loggedout.html"
 
-LOGIN_REDIRECT_URL = (
-    "/dashboard/"
-)
-
-BASE_TEMPLATE = (
-    "core/layout.html"
-)
+LOGIN_REDIRECT_URL = "/dashboard/"
 
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    #'django.contrib.sites',
+    'django.contrib.sites',
     'django.contrib.admin',
     'cis.personal',
     'cis.book',
     'cis.investigation',
     'cis.locations',
     'cis.offenses',
-    'cis.core'
+    'cis.core',
 )
