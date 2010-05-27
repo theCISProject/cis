@@ -1,4 +1,20 @@
 {% load i18n %}
+{% if user.is_authenticated %}
+<ul>
+  <li><a href="/dashboard/" class="home">home</a></li>
+  <li><a href="http://www.free-css.com/" class="search">search</a></li>
+  <li><a href="http://www.free-css.com/" class="ser">services</a></li>
+  <li><a href="http://www.free-css.com/" class="blog">blog</a></li>
+  <li><a href="http://www.free-css.com/" class="contact">contact</a></li>
+</ul>
+<ul class="navi">
+  <li><a href="/dashboard/" class="navi1">home</a></li>
+  <li><a href="http://www.free-css.com/" class="navi1">search</a></li>
+  <li><a href="http://www.free-css.com/" class="navi1">services</a></li>
+  <li><a href="http://www.free-css.com/" class="navi1">blog</a></li>
+  <li><a href="http://www.free-css.com/" class="nobor">contact</a></li>
+</ul>
+{% endif %}
 <div id="currentlogin-block">
   {% if user.is_authenticated %}        
       Logged in as <strong>{{user}}</strong>
@@ -7,5 +23,4 @@
   {%else%}
       <a href="{% url core.views.login %}">{% trans "Log in" %}</a>
   {%endif%}
-  
 </div>

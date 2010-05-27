@@ -25,7 +25,7 @@ MANAGERS = ADMINS
 DATABASE_ENGINE = 'mysql'       # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
 DATABASE_NAME = 'cis'		# Using this for mysql db system
 DATABASE_USER = 'root'          # Using this for mysql db system
-DATABASE_PASSWORD = ''          # Using this for mysql db system
+DATABASE_PASSWORD = 'root'          # Using this for mysql db system
 DATABASE_HOST = ''              # Set to empty string for localhost. Not used with sqlite3.
 DATABASE_PORT = ''              # Set to empty string for default. Not used with sqlite3.
 
@@ -53,7 +53,7 @@ MEDIA_ROOT = ''
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = '/static'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
@@ -107,6 +107,9 @@ LOGIN_TEMPLATE = "core/login.html"
 LOGGEDOUT_TEMPLATE = "core/loggedout.html"
 
 LOGIN_REDIRECT_URL = "/dashboard/"
+
+# serves css, javascript, images
+STATIC_DOC_ROOT = os.path.join(PROJECT_DIR, 'core/static')
 
 INSTALLED_APPS = (
     'django.contrib.auth',
