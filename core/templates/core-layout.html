@@ -9,7 +9,7 @@
             {% block title %}{% endblock%}{% block title_suffix %} - Criminal Information System{% endblock %}
         </title>
         {% block stylesheets %}
-        <link type="text/css" rel="stylesheet" href="/static/stylesheets/style.css" />
+        <link type="text/css" rel="stylesheet" href="/statics/stylesheets/style.css" />
         {% endblock %}
         {% block temp_stylesheets %}
         </script>
@@ -19,7 +19,7 @@
 <body>
     <div id="updiv">
         <div id="header">
-		<img src="/static/images/logo2.gif" title="CIS" alt="CIS logo"  />
+		<img src="images/logo2.gif" title="CIS" alt="CIS logo"  />
 		<h1 id="site-name">{%trans "CIS - TANZANIA" %}</h1>
 		{% block auth %}
                 {% include "core/partials/header.html" %}

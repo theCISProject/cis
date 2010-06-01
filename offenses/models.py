@@ -15,6 +15,8 @@ class OffenseCategory(models.Model):
 	def __unicode__(self):
 		''' Return crime categories and their sections'''
 		return '%s %s: %s' % (self.RANK_CHOICES[int(self.rank)][1].split()[0], self.SECTION_CHOICES[ int(self.offense_section) ][1],self.category_name)
+	class Meta:
+		verbose_name_plural = 'Offense Categories'
 
 class Offense(models.Model):
 	offense_category = models.ForeignKey(OffenseCategory,help_text='Specify Crime category where an Offense falls in, i.e "Major/Minor Traffic/Criminal Offenses".')

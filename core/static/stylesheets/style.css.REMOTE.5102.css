@@ -16,7 +16,7 @@ ul{
 	}
 /*---------------upperpan-----------*/
 #updiv{
-	width:100%;	background:url(/statics/images/updiv_bg.gif) repeat-x #FFFFFD; color:#584200; float:left; margin:0 auto 0 auto;
+	width:100%;	background:url(/static/images/updiv_bg.gif) repeat-x #FFFFFD; color:#584200; float:left; margin:0 auto 0 auto;
 	}
 /*---------------------header part-------*/
 #header{
@@ -52,19 +52,19 @@ ul{
 	text-indent:-2000px;
 	}
 #header ul li a.home{
-	background:url(/statics/images/home_icon.gif) no-repeat; width:60px;
+	background:url(/static/images/home_icon.gif) no-repeat; width:60px;
 	}
 #header ul li a.search{
-	background:url(/statics/images/search.gif) no-repeat; width:60px;
+	background:url(/static/images/search.gif) no-repeat; width:60px;
 	}
 #header ul li a.ser{
-	background:url(/statics/images/services.gif) no-repeat; width:60px;
+	background:url(/static/images/services.gif) no-repeat; width:60px;
 	}
 #header ul li a.blog{
-	background:url(/statics/images/blog.gif) no-repeat; width:60px;
+	background:url(/static/images/blog.gif) no-repeat; width:60px;
 	}
 #header ul li a.contact{
-	background:url(/statics/images/contact_icon.gif) no-repeat; width:60px;
+	background:url(/static/images/contact_icon.gif) no-repeat; width:60px;
 	}
 #header ul.navi{
 	width:306px;
@@ -80,20 +80,20 @@ ul{
 	float:left;
 	}
 #header ul.navi li a.navi1{
-	background:url(/statics/images/navi_bg.gif) no-repeat; width:61px; background-color:#FEF4D6;
+	background:url(/static/images/navi_bg.gif) no-repeat; width:61px; background-color:#FEF4D6;
 	font-family:Arial, Helvetica, sans-serif; font-size:11px; font-weight:bold;	color:#FFFFFF;
 	text-decoration:none; padding-top:9px;	height:20px; text-indent:0px; text-align:center; 
 	}
 #header ul.navi li a.nobor{
-	background:url(/statics/images/navi_bg1.gif) no-repeat; width:61px;	font-family:Arial, Helvetica, sans-serif;
+	background:url(/static/images/navi_bg1.gif) no-repeat; width:61px;	font-family:Arial, Helvetica, sans-serif;
 	font-size:11px;	font-weight:bold; color:#FFFFFF; text-decoration:none; height:29px;	text-indent:0px;
 	text-align:center;	line-height:29px;  background-color:#FEF4D6;
 	}
 #header ul.navi li a.navi1:hover{
-	background:url(/statics/images/navi_bgh.gif) no-repeat; width:61px;
+	background:url(/static/images/navi_bgh.gif) no-repeat; width:61px;
 	}
 #header ul.navi li a.nobor:hover{
-	background:url(/statics/images/navi_bgh.gif) no-repeat; width:61px;
+	background:url(/static/images/navi_bgh.gif) no-repeat; width:61px;
 	}
 #header h2{
 	width:128px; padding:32px 0 0 49px;	font-family:Georgia, "Times New Roman", Times, serif;
@@ -129,7 +129,7 @@ ul{
       margin: 3%;
       border: 1px solid #7FD7F7;
 /*       background-color: #E5F7FD; */
-      background:url(/statics/images/lock.png) no-repeat #E5F7FD;
+      background:url(/static/images/lock.png) no-repeat #E5F7FD;
       background-position: right;
       width: 500px;
       height: 130px;
@@ -214,18 +214,18 @@ ul{
 	line-height:30px;
 	}
 #midDiv div.Davis a{
-	background:url(/statics/images/more_bg.gif) no-repeat 0px 0px #FFF9E8;
+	background:url(/static/images/more_bg.gif) no-repeat 0px 0px #FFF9E8;
 	width:109px; height:38px; display:block;
 	padding:8px 30px 0 43px;
 	color:#444131;
 	float:left;	font:16px/14px "Trebuchet MS", Arial, Helvetica, sans-serif; text-decoration:none;	
 	}
 #midDiv div.Davis a:hover{
-	background:url(/statics/images/more_bgh.gif) no-repeat 0 0 #FFF9E6; color:#444131;
+	background:url(/static/images/more_bgh.gif) no-repeat 0 0 #FFF9E6; color:#444131;
 	}
 /*------------------------------------------------down table-----------------------*/
 #downv{
-	background:url(/statics/images/down_table_bg.gif) repeat-x;
+	background:url(/static/images/down_table_bg.gif) repeat-x;
 	width:100%;
 	height:271px;
 	margin:0 auto 0 auto;
@@ -236,18 +236,18 @@ ul{
 	width:778px;
 	height:271px;
 	margin:0 auto 0 auto;
-	background:url(/statics/images/best_bg.gif) no-repeat right top;
+	background:url(/static/images/best_bg.gif) no-repeat right top;
 	}
 #best{
 	width:283px;
 	float:left;
-	background:url(/statics/images/line.gif) repeat-y right;
+	background:url(/static/images/line.gif) repeat-y right;
 	height:270px;
 	}
 #best h2{
 	width:136px; display:block;	color:#FFF9E3;	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
 	font-weight:normal;	padding:23px 0 0px 49px; font-size:36px; line-height:36px;
-	background:url(/statics/images/mid_h2_bg.gif) repeat-x #584200;
+	background:url(/static/images/mid_h2_bg.gif) repeat-x #584200;
 	}
 #best h2 span{
 	color:#FFF9E7; background-color:#584200;
@@ -257,7 +257,7 @@ ul{
 	width:190px; display:block;	margin:20px 0 0 49px;	
 	}
 #best ul li{
-	height:24px; display:block;	background:url(/statics/images/arrow.gif) no-repeat 0px 5px;
+	height:24px; display:block;	background:url(/static/images/arrow.gif) no-repeat 0px 5px;
 	}
 #best ul li a{
 	font-family:Arial, Helvetica, sans-serif; font-size:17px; color:#FFF9E9; margin:0 0 0 16px;	text-decoration:none;
@@ -267,12 +267,12 @@ ul{
 	text-decoration:underline;
 	}
 #best a.more{
-	background:url(/statics/images/more2_bg.gif) no-repeat #fff;	width:43px;	height:16px; display:block;	margin:16px 0 0 49px;
+	background:url(/static/images/more2_bg.gif) no-repeat #fff;	width:43px;	height:16px; display:block;	margin:16px 0 0 49px;
 	font-family:Arial, Helvetica, sans-serif; color:#352800; font-weight:bold;	padding:0 0px 0 147px;
 	font-size:12px;	text-decoration:none;
 	}
 #best a.more:hover{
-	background:url(/statics/images/more2_bgh.gif) no-repeat;
+	background:url(/static/images/more2_bgh.gif) no-repeat;
 	}
 #best1{
 	width:283px; float:left; height:270px;
@@ -280,7 +280,7 @@ ul{
 #best1 h2{
 	width:136px; display:block;	color:#FFF9f6; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
 	font-weight:normal;	padding:23px 0 0px 49px; font-size:36px; line-height:36px;
-	background:url(/statics/images/mid_h2_bg.gif) repeat-x #584200;
+	background:url(/static/images/mid_h2_bg.gif) repeat-x #584200;
 	}
 #best1 h2 span{
 	color:#FFF9f8;	font-size:30px; background-color:#584200;
@@ -289,7 +289,7 @@ ul{
 	width:190px; display:block;	margin:20px 0 0 49px;	
 	}
 #best1 ul li{
-	height:24px; display:block;	background:url(/statics/images/arrow.gif) no-repeat 0px 5px;
+	height:24px; display:block;	background:url(/static/images/arrow.gif) no-repeat 0px 5px;
 	}
 #best1 ul li a{
 	font-family:Arial, Helvetica, sans-serif; font-size:17px; color:#FFF9E0; margin:0 0 0 16px;
@@ -299,12 +299,12 @@ ul{
 	text-decoration:underline;
 	}
 #best1 a.more{
-	background:url(/statics/images/more2_bg.gif) no-repeat #fff;
+	background:url(/static/images/more2_bg.gif) no-repeat #fff;
 	width:43px;	height:16px; display:block;	margin:16px 0 0 49px;	font-family:Arial, Helvetica, sans-serif;
 	color:#352800;	font-weight:bold; padding:0 0px 0 147px; font-size:12px; text-decoration:none;
 	}
 #best1 a.more:hover{
-	background:url(/statics/images/more2_bgh.gif) no-repeat;
+	background:url(/static/images/more2_bgh.gif) no-repeat;
 	}
 /*---------------footer---------*/
 #foo1{
@@ -367,8 +367,8 @@ ul{
 	font-size:0px;
 	}
 #footer_div ul.css li a.htm{
-	background:url(/statics/images/html.gif) no-repeat 0 0; width:75px;
+	background:url(/static/images/html.gif) no-repeat 0 0; width:75px;
 		}
 #footer_div ul.css li a.cs{
-	background:url(/statics/images/css.gif) no-repeat; width:75px;
+	background:url(/static/images/css.gif) no-repeat; width:75px;
 		}

@@ -5,12 +5,6 @@
 from django.contrib import admin
 from book.models import *
 
-class InformationInline(admin.StackedInline):
-	model = Information
-	extra = 2
-
-class InformationAdmin(admin.ModelAdmin):
-	pass
 
 class DetailInline(admin.TabularInline):
 	model = Detail
@@ -40,19 +34,20 @@ class ArrestInline(admin.TabularInline):
 class ArrestAdmin(admin.ModelAdmin):
 	pass
 
-
+class InformationAdmin(admin.ModelAdmin):
+	pass
 class ReportAdmin(admin.ModelAdmin):
 	#~ list_display = ('serial_number', 'date', 'time', 'personal_information',
 					#~ 'report_detail', 'investigation_number', 'action',
 					#~ 'accused', 'arrest', 'property_detail', 'status'
 					#~ )
-	inlines = [InformationInline, DetailInline, ActionInline, AccusedInline, ArrestInline]
-	search_fields = ['serial_number', 'personal_information__name']
+	inlines = [DetailInline, ActionInline, AccusedInline, ArrestInline]
+	search_fields = ['serial_number']
 
 admin.site.register(Report,ReportAdmin)
 admin.site.register(Arrest,ArrestAdmin)
 admin.site.register(Accused,AccusedAdmin)
 admin.site.register(Action,ActionAdmin)
 admin.site.register(Detail,DetailAdmin)
-#~ admin.site.register(Information,InformationAdmin)
+admin.site.register(Information,InformationAdmin)
 

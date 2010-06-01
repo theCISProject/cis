@@ -1,12 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-##	TODO:
-##		- Meaning of criminal case number and how it's relataed to evidence
-##		- RD(is it RB) number?
-##		- Minute sheet carries what?
-##		- Charge carries charges list or single charge?
-
 from django.db import models
 
 from offenses.models import Offense
