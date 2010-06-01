@@ -9,132 +9,41 @@
             {% block title %}{% endblock%}{% block title_suffix %} - Criminal Information System{% endblock %}
         </title>
         {% block stylesheets %}
-        <!--<link type="text/css" rel="stylesheet" href="{{MEDIA_URL}}/core/static/stylesheets/style.css" />-->
-        <!--<link type="text/css" rel="stylesheet" href="/media/Otoro/projects/cis/core/static/stylesheets/style.css" />-->
+        <link type="text/css" rel="stylesheet" href="/statics/stylesheets/style.css" />
         {% endblock %}
         {% block temp_stylesheets %}
-            <style type="text/css">
-                body{
-                    background-color: #EEE;
-                }
-
-                #wrapper {
-                    /* width: 83em; */
-                    
-                    margin: 0 auto;
-                    background: #FFF;
-                    
-                    /* a little pretty for the 10/dec demo 
-                    -moz-box-shadow: 4px 4px 8px #aaa;
-                    box-shadow: 4px 4px 8px #aaa;
-                    margin-top: 0.5em;
-                    -moz-border-radius-bottomright: 1em;
-                    -moz-border-radius-bottomleft: 1em; */
-                }
-
-                * html #wrapper {
-                    width: 960px;                    
-                }
-
-
-                #header {
-                    background: #FFF;
-                    overflow: hidden;
-                    padding-bottom: 0px;
-                    position: relative;
-                    color:black;
-                }
-
-                #footer {
-                    background: #FFF;
-                    overflow: hidden;
-                    padding-bottom: 0px;
-                    position: relative;
-                    color:black;
-                }
-
-                #header h1 {
-                    text-align: right;
-                    font-size: 1.5em;
-                }
-
-                #header img {
-                    /* position logo on the left */
-                }
-                
-                #loginscreen {
-                    position: relative;
-                    top: 0;
-                    left: 17em;
-                    background-color: #F3FBFE;
-                    width: 800px;
-                    min-height: 13em;
-                    
-                }
-                #loginblock {
-                    position: absolute;
-                    left: 7.2em;
-                    top: 1.5em;
-                    border:1px solid #7FD7F7;
-                    width:600px;
-                    min-height: 10em;
-                    background-color:#E5F7FD;
-
-                    margin-bottom: 20px;
-                    margin-left:auto;
-                    margin-right:auto;
-                    text-align:center;
-                }
-
-                #loginblock table {
-                    margin:auto;
-                    border:none;
-                    text-align:center;
-                }
-
-                #currentlogin-block {
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    padding: 0.2em 10px;
-                    font-size: 11px;
-                    text-align: right;
-                    color: white;
-                }
-
-            </style>
+        </script>
         {% endblock %}
         {% block javascripts %}{% endblock %}
     </head>
 <body>
-    <div id="wrapper">
+    <div id="updiv">
         <div id="header">
-            <div class="container">
-                {% block auth %}
+		<img src="images/logo2.gif" title="CIS" alt="CIS logo"  />
+		<h1 id="site-name">{%trans "CIS - TANZANIA" %}</h1>
+		{% block auth %}
                 {% include "core/partials/header.html" %}
                 {% endblock %}
                 <div id="branding">
                     {% block branding %}{% endblock %}
                 </div>
-                <h1 id="site-name">{%trans "Criminal Information System" %}</h1>
-            </div>
-            <div id="navigation">
-                {% block navigation %}{% endblock %}
-            </div>
+         </div>
+	  {% block login %}{% endblock %}
+	      
         </div>
-        <div id="inner">
-            <div class="container">
-                {% block content %}
-                {% endblock %}
-            </div>
-        </div>
-        <div id="footer">
-            <div class="container">
-                {% block footer %}
-                {% include "core/partials/footer.html" %}
-                {% endblock %}
-            </div>
-        </div>
+    </div>
+    <div id="mid">
+      <div id="midDiv">
+	  {% block content %}
+	  {% endblock %}
+      </div>
+    </div>
+    <div id="foo1">
+      <div id="footer_div">
+	{% block footer %}
+	{% include "core/partials/footer.html" %}
+        {% endblock %}
+      </div>
     </div>
 </body>
 </html>
