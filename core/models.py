@@ -14,7 +14,7 @@ class Zone(models.Model):
     """
     name  = models.CharField(max_length=64, unique=True)
     description = models.TextField()
-
+    
     # Propose to add a head to each zone to validate data
     # submittion in their zone.. EXPERIMENTAL! (allen)
     # head = models.ForeignKey(Police)
@@ -22,7 +22,7 @@ class Zone(models.Model):
 
     def __unicode__(self):
         return self.name
-
+    
 class PoliceProfile(User):
     """
         A Web ui user, who can see data or be and administrator.
