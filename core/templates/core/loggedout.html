@@ -1,12 +1,13 @@
 {% extends request.base_template %}
 {# {% extends "core-layout.html" %} #}
 {% block title %}Goodbye{% endblock %}
-{% block content %}
+{% block login %}
+<div id="login">
+    <h2>(CIS)</h2>
+    <h3>You have loggout successfully!</h3>
 
-<h1>You have loggout successfully!</h1>
+     <p>Please come again.</p>
 
-<p>Please come again.</p>
-
-<a href="/accounts/login">Log in again</a>
+      <a href="/accounts/login">Log in again</a>
 
 {% endblock %}
