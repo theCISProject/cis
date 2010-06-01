@@ -8,7 +8,8 @@
 ##		- Charge carries charges list or single charge?
 
 from django.db import models
-from book.models import Accused # why importing this?
+
+from offenses.models import Offense
 
 # Create your models here.
 '''
@@ -23,8 +24,7 @@ class Register(models.Model):
 	rb_number = models.CharField(max_length=80)
 	complainant = models.ForeignKey('Complainant')
 	officer = models.ForeignKey('Officer')
-	offense_category = models.CharField(max_length=80)
-	offense_section = models.CharField(max_length=80)
+	offense = models.ForeignKey(Offense)
 	results = models.ForeignKey('Result')
 	remarks = models.CharField(max_length=80)
 	court_case_number = models.IntegerField('Court Case Number')

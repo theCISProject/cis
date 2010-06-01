@@ -4,7 +4,6 @@
 
 from django.contrib import admin
 from book.models import *
-from personal.models import Information
 
 class InformationInline(admin.StackedInline):
 	model = Information

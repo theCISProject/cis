@@ -117,7 +117,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
-    'cis.personal',
     'cis.book',
     'cis.investigation',
     'cis.locations',

@@ -1,5 +1,6 @@
 CIS is A Criminal Information System
-    A system to track criminal offenses.
+	A web based information system that keeps track criminal offenses.
+	Geographically from local police station level to country wide.
 
 
 
@@ -22,16 +23,16 @@ cis/MILESTONES
 	Bugs in coding part that needs fixes.
 
 cis/Book
-	Directory holding fine information about the reported crime in a particular
-	police station, among informations held includes Information about the accused
+	Directory holding fine information about the reported offenses in a particular
+	local police station, among informations held includes Information about the accused
 	personnel, action taken against the reported offense, any arrests made, details
 	of the reported crime and personal information of the personnel reporting the
-	crime.
+	offense.
 
 cis/Core
 	Directory express informations on priviledges and authorities of system users
 	and the range of tasks the can perform which may range from just viewing data
-	posting data, to generating reports from the crime data.
+	posting data, to generating reports from the offense informations.
 
 	Makes use of django Users to control priviledges, and zones the personnel
 	belongs to.
@@ -40,15 +41,17 @@ cis/Core
 	more descriptive.
 
 cis/Investigation
-	This directory holds information recorded in an investigation book related to
-	the reported crime, indeed if the reported crime had an opened case that
-	initiated an investigation, it holds Investigation register number, RB
-	Number of the case being investigated, complainant name, offenses investigated
-	the name of detective investigating.
+	This directory holds information in an investigation register book,
+	information of offenses whose case has been opened and given IR Number.
+	If the reported offense have an opened case with an ongoing/closed investigation,
+	it holds Investigation register number, RB Number of the case being investigated,
+	complainant name, title of offenses under investigation and the name of detective
+	investigating. Results of of investigation, remarks and court case number(if it
+	made it to the court).
 	
-	It also contains an evidence file containing minute sheets, charges, details of
-	the acccused, name of the investigation officer, total value of properties and
-	criminal case number.
+	Results of the investigation holds evidence file containing minute sheets, charges,
+	details of the acccused, name of the investigation officer, total value of properties
+	and criminal case number.
 
 cis/Locations
 	This directory holds details of locations police stations distributed country wide
@@ -56,16 +59,18 @@ cis/Locations
 	about the police station.
 
 cis/Offenses
-	This directory holds details about the recorded offenses from variety of police
-	stations country wide, and categorizes the according to current format. which
-	includes Major/Minor offenses and type of offense, whether civil, criminal or
-	of any other kind.
-
-cis/Personal
-	This directory holds full details of personnel information including all particulars
-	such as person's name, age, sex, nationality/tribe, occupation, postal address
-	and suggested phone number, e-mail, voter's id number to cope with technology
-	and the report book associated with the person who's information is detailed.
+	This Application holds information used to map offenses in Investigation register
+	according to different levels of priority. Offering flexibility in generating reports
+	and statistical informations according to different criterias.
+	Currently Offenses are classified into Offense categories which specify
+	Offense Section, Rank and Category name.
+	
+	Offense section is the top level classification offenses which put offenses into either
+	"Criminal Offense" or "Traffic Offense".
+	Rank is a rating attribute of offense which weighs offenses into "Major" or "Minor"
+	offense, where these offenses will fall into one of the  two Offense sections.
+	Category name which is a name of bigger categories holding multiple offenses falling
+	within the two Offense sections.
 
 
 cis/templates/
@@ -73,6 +78,7 @@ cis/templates/
 
 cis/application_name/templates/
 	All the application templates should be in the it's application folder under templates
-	for each project, there needs to be templates unique to managing the templates for the main content portions.
-	within the confines of the application you're working in, you can make templates local and relative to the application you create.
+	for each project, there needs to be templates unique to managing the templates for the
+	main content portions. within the confines of the application you're working in, you can
+	make templates local and relative to the application you create.
 
