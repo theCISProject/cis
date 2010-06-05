@@ -1,18 +1,12 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-#   Django settings for cis project.
 import os.path
 # getting the path of the project
 # to auto-detect the absolute path
-# of the tamplate folder, when project moved.
 PROJECT_DIR = os.path.dirname(__file__)
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@domain.com'),
     ('John F. Mukulu', 'john.f.mukulu@gmail.com'),
     ('Allen Machary', 'allen.machary@gmail.com'),
     ('Salome H. Maro', 'your_email@domain.com'),
@@ -25,8 +19,7 @@ MANAGERS = ADMINS
 DATABASE_ENGINE = 'mysql'       # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
 DATABASE_NAME = 'cis'		# Using this for mysql db system
 DATABASE_USER = 'root'          # Using this for mysql db system
-# dont database password here
-DATABASE_PASSWORD = 'root'          # Using this for mysql db system
+DATABASE_PASSWORD = ''          # Using this for mysql db system
 DATABASE_HOST = ''              # Set to empty string for localhost. Not used with sqlite3.
 DATABASE_PORT = ''              # Set to empty string for default. Not used with sqlite3.
 
@@ -86,7 +79,6 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     "django.core.context_processors.i18n",
     "django.core.context_processors.media",
     "django.core.context_processors.request",
-    "core.context_processors.base_template" # sticks the base template inside all responses
 ]
 
 
@@ -110,7 +102,7 @@ LOGGEDOUT_TEMPLATE = "core/loggedout.html"
 LOGIN_REDIRECT_URL = "/dashboard/"
 
 # serves css, javascript, images
-STATIC_DOC_ROOT = os.path.join(PROJECT_DIR, 'core/static')
+STATIC_DOC_ROOT = os.path.join(PROJECT_DIR, 'statics')
 
 INSTALLED_APPS = (
     'django.contrib.auth',
