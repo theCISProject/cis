@@ -23,4 +23,4 @@ class Offense(models.Model):
 	offense_title = models.CharField(max_length=80,help_text='Register title of a newly established criminal/traffic offense.')
 	def __unicode__(self):
 		'''Return offense title'''
-		return '%s' % (self.offense_title)
+		return '%s under %s' % (self.offense_title, self.offense_category)

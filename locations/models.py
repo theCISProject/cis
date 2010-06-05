@@ -9,7 +9,7 @@ class LocationType(models.Model):
     """
 	@Allen: What do you mean by location type? make some clarifications here?
     """
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100,help_text="Location type, i.e. it's a region/country")
 
 
     class Meta:
@@ -28,7 +28,7 @@ class Location(models.Model):
      """
     # TODO: lookup on recursion on django.
     #       objects = RecursiveManager()
-    type = models.ForeignKey(LocationType, related_name="locations", blank=True, null=True)
+    type = models.ForeignKey(LocationType, related_name="locations", blank=True, null=True,help_text="Location type, ie. country/region")
     name = models.CharField(max_length=100, help_text="Name of location")
     code = models.CharField(max_length=30, unique=True, blank=True, null=True)
 
@@ -53,7 +53,7 @@ class Station(models.Model):
 #    latitude  = models.DecimalField(max_digits=8, decimal_places=6, blank=True, null=True, help_text="The physical latitude of this location")
 #    longitude = models.DecimalField(max_digits=8, decimal_places=6, blank=True, null=True, help_text="The physical longitude of this location")
 #    TODO: implement a load.py to mapping
-    point = models.PointField()
+    point = models.PointField(blank=True)
     manager = models.GeoManager()
 
     def __unicode__(self):
