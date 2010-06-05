@@ -1,0 +1,32 @@
+{% extends "core-layout.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+<p>You're already logged in!</p>
+{% else %}
+<div id="login">
+    <h2>(CIS) <span>Login</span></h2>
+      <form method="POST" action=".">
+	  	
+	<table>
+	  <tr>
+	    <td><p>{{ form.username.label_tag }}</p></td>
+	    <td>{{ form.username }} </td>
+	  </tr>
+	  <tr>
+	    <td><p>{{ form.password.label_tag }}</p></td>
+	    <td>{{ form.password }}</td>
+	  </tr>
+	  <tr>
+	      <td><input type="hidden" name="next" value="{{ next }}" /></td>
+	      <td><input type="submit" value="Login" class="button" /></td>
+	  </tr>
+	    {% if form.errors %}
+	      <font color="red">Your username and password didn't match. Please try again.</font>
+	    {% endif %}
+	</table>
+      </form>
+</div>
+{% endif %}
+{% endblock %}
+

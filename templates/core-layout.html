@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <title>
+            {% block title %}{% endblock%}{% block title_suffix %} - Criminal Information System{% endblock %}
+        </title>
+        {% block stylesheets %}
+        <link type="text/css" rel="stylesheet" href="/statics/stylesheets/style.css" />
+        {% endblock %}
+        {% block temp_stylesheets %}
+        </script>
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+    </head>
+<body>
+    <div id="wrapper">
+        <div id="header">
+	  <div id="currentlogin-block">
+	    {% if user.is_authenticated %}        
+		Logged in as <strong>{{user}}</strong>
+		&nbsp;&nbsp;<a href="/admin/">Admin</a>&nbsp;&nbsp; |
+		&nbsp;&nbsp;<a href="{% url core.views.logout %}">Log out</a>
+	    {%else%}
+		<a href="{% url core.views.login %}">Log in</a>
+	    {%endif%}
+	  </div> <!--end currentlogin-->
+          <div id="branding">
+		<h1 class="cis_branding">CIS - TANZANIA</h1>
+		<h1 class="site_branding">POLICE TANZANIA</h1>
+          </div> <!--end branding-->
+        </div> <!--end header-->
+	
+	<div id="navigation">
+	  {% block navigation %}
+	      {% include "core/partials/header.html" %}
+	  {% endblock %}
+        </div> <!--end navigation-->
+    
+      <div id="content">
+	    {% block content %}
+	    {% endblock %}
+      </div> <!--end container-->
+      
+      <div id="footer">
+	  {% block footer %}
+	  {% include "core/partials/footer.html" %}
+	  {% endblock %}
+      </div> <!--end footer-->
+  </div> <!--end wrapper-->
+</body>
+</html>
