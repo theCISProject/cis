@@ -83,10 +83,11 @@ class Property(models.Model):
 		verbose_name_plural = 'Properties'
 	
 class Officer(models.Model):
-	name = models.CharField(max_length=80)
+	first_name = models.CharField(max_length=80)
+	last_name = models.CharField(max_length=80)
 	position = models.CharField(max_length=80)
 	def __unicode__(self):
-		return 'Name: %s    Position: %s' % (self.name, self.position)
+		return 'Name: %s %s   Position: %s' % (self.first_name, self.last_name, self.position)
 
 class Accused(models.Model):
 	name = models.CharField(max_length=80)
