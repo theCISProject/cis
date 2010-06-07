@@ -20,96 +20,6 @@ ul{
 	margin:0 auto 0 auto;	
 }
 
-/*#header img{
-	width:243px;
-	margin:31px 0 0 49px;
-	float:left;
-	}
-
-#header ul{
-	width:306px;
-	display:block;
-	margin:15px 0 0 49px;
-	float:left;
-	font-size:0px;
-	}
-#header ul li{
-	display:block;
-	margin:0 1px 0 0px;
-	float:left;
-	}
-#header ul li a{
-	display:block;
-	height:74px;
-	text-indent:-2000px;
-	}
-#header ul li a.home{
-	background:url(/statics/images/home_icon.gif) no-repeat; width:60px;
-	}
-#header ul li a.search{
-	background:url(/statics/images/search.gif) no-repeat; width:60px;
-	}
-#header ul li a.ser{
-	background:url(/statics/images/services.gif) no-repeat; width:60px;
-	}
-#header ul li a.blog{
-	background:url(/statics/images/blog.gif) no-repeat; width:60px;
-	}
-#header ul li a.contact{
-	background:url(/statics/images/contact_icon.gif) no-repeat; width:60px;
-	}
-#header ul.navi{
-	width:306px;
-	display:block;
-	margin:0px 0 0 0px;
-	float:left;
-	font-size:0px;
-	padding:0 0 0 472px;
-	}
-#header ul.navi li{
-	display:block;
-	margin:0 0px 0 0px;
-	float:left;
-	}
-#header ul.navi li a.navi1{
-	background:url(/statics/images/navi_bg.gif) no-repeat; width:61px; background-color:#FEF4D6;
-	font-family:Arial, Helvetica, sans-serif; font-size:11px; font-weight:bold;	color:#FFFFFF;
-	text-decoration:none; padding-top:9px;	height:20px; text-indent:0px; text-align:center; 
-	}
-#header ul.navi li a.nobor{
-	background:url(/statics/images/navi_bg1.gif) no-repeat; width:61px;	font-family:Arial, Helvetica, sans-serif;
-	font-size:11px;	font-weight:bold; color:#FFFFFF; text-decoration:none; height:29px;	text-indent:0px;
-	text-align:center;	line-height:29px;  background-color:#FEF4D6;
-	}
-#header ul.navi li a.navi1:hover{
-	background:url(/statics/images/navi_bgh.gif) no-repeat; width:61px;
-	}
-#header ul.navi li a.nobor:hover{
-	background:url(/statics/images/navi_bgh.gif) no-repeat; width:61px;
-	}
-#header h2{
-	width:128px; padding:32px 0 0 49px;	font-family:Georgia, "Times New Roman", Times, serif;
-	font-size:48px;	color:#1892AC;	font-weight:normal;	display:block;	float:left; background-color:#FFFFFF;
-	}
-#header h2 span{
-	font-size:30px;
-	}
-#header p{
-	width:531px;
-	display:block;
-	margin:20px 0 13px 24px;
-	float:left;
-	font-size:14px;
-	line-height:18px;
-	}
-#header h3{
-	font-size:24px; 
-	line-height:18px; width:auto;
-	height:20px; font-weight:normal;
-	margin:0 0 0 0px; 
-	padding:0px 60px 0 1px; display:block; float:right;
-	}*/
-
 /*----------------------login--------------------*/
 #login{
 	height:200px;
@@ -187,7 +97,7 @@ ul{
       color: #FFF;
       font-size: 0.8em;
       width: 100%;
-      background-color: #D3ECA9;
+      background-color: #A9D2E4;
       height: 60px;
 }
 
@@ -208,6 +118,39 @@ ul{
 #branding .cis_branding{
       float: left;
 }
+
+/* ------------navigation--------------- */
+
+#navigation{
+	  width: 100%;
+	  font-size: 100%;
+	  background-color: #B51032;
+}
+
+#navigation ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	padding-top: 1em;
+}
+
+#navigation li {
+	display: inline;
+}
+
+#navigation a:link a:visited {
+      padding: 04em 1em 0.4em 1em;
+      background-color: #B51032;
+      color: #FFFFFF;
+      text-decoration: none;
+      border: 1px solid #711515;
+}
+
+#navigation a:hover {
+      color:#FFFFFF ;
+      background-color: #711515;
+}
+
 /*-------------------------middle-------------*/
 #container{
 	width:100%;
