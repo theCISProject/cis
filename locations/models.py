@@ -53,7 +53,7 @@ class Station(models.Model):
 #    latitude  = models.DecimalField(max_digits=8, decimal_places=6, blank=True, null=True, help_text="The physical latitude of this location")
 #    longitude = models.DecimalField(max_digits=8, decimal_places=6, blank=True, null=True, help_text="The physical longitude of this location")
 #    TODO: implement a load.py to mapping
-    point = models.PointField(blank=True)
+    # point = models.PointField(blank=True)
     manager = models.GeoManager()
 
     def __unicode__(self):
