@@ -1,0 +1,226 @@
+/* CSS Document */
+body{
+	padding:0;
+	margin:0;
+	font-family:Arial, Helvetica, sans-serif;
+		}
+div, img, p, h1, h2, h3, ul, li{
+	padding:0;
+	margin:0;
+	}
+.blank {
+	font-size:0px; line-height:0px; clear:both;
+	}
+ul{	
+	list-style-type:none;
+	}
+/*---------------------header part-------*/
+#header{
+	width:100%;
+	margin:0 auto 0 auto;	
+}
+
+/*----------------------login--------------------*/
+#login{
+	height:200px;
+	background-color: #F3FBFE;
+	margin: 0  0 20px ;
+	padding-left: 20%;
+}
+#login table {
+      margin: 3%;
+      border: 1px solid #7FD7F7;
+/*       background-color: #E5F7FD; */
+      background:url(/statics/images/lock.png) no-repeat #E5F7FD;
+      background-position: right;
+      width: 500px;
+      height: 130px;
+      padding: 15px;
+}
+
+#login table p{
+      text-align: right;
+      font-weight:bold;
+      color: #333;
+      font-size: 0.9em;
+}
+#login .button{
+      float: left;
+      background-color: #98C73F;
+      width: 7em;
+      border: 1px solid #FFF;
+      font-weight:bold;
+}
+
+#login .button:hover{
+      background-color: #80C908;
+}
+#id_username, #id_password{
+      border: 2px solid #CCC;
+}
+
+#id_username:hover, #id_password:hover{
+      border: 2px solid #98C73F;
+}
+
+#login h2{
+	width:128px; padding:32px 0 0 49px;	font-family:Georgia, "Times New Roman", Times, serif;
+	font-size:48px;	color:#1892AC;	font-weight:normal;	display:block;	float:left;
+	}
+#login h2 span{
+	font-size:30px;
+}
+/*--------------currentlogin-block------------*/
+#currentlogin-block{
+      position:absolute;
+      top: 0;
+      right: 0;
+      color: #FFF;
+      font-size: 0.8em;
+      width: 100%;
+      background-color: #000;
+      text-align: right;
+}
+
+#currentlogin-block a{
+      color: #FFF;
+      text-decoration: none;
+}
+
+#currentlogin-block a:hover{
+      text-decoration: underline;
+}
+
+/* --------------branding---------------- */
+
+#branding{
+      color: #FFF;
+      font-size: 0.8em;
+      width: 100%;
+      background-color: #A9D2E4;
+      height: 60px;
+}
+
+#branding h1{
+	margin-top: 15px;
+	font:1em Arial, Helvetica, sans-serif; 
+	width:114px;	
+	display:block;	
+	color:#FFF;	
+	font-weight:bold;
+	height: 40px;
+}
+
+#branding .site_branding{
+      float: right;
+}
+
+#branding .cis_branding{
+      float: left;
+}
+
+/* ------------navigation--------------- */
+
+#navigation{
+	  width: 100%;
+	  font-size: 100%;
+	  background-color: #B51032;
+}
+
+#navigation ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	padding-top: 1em;
+}
+
+#navigation li {
+	display: inline;
+}
+
+#navigation a:link a:visited {
+      padding: 04em 1em 0.4em 1em;
+      background-color: #B51032;
+      color: #FFFFFF;
+      text-decoration: none;
+      border: 1px solid #711515;
+}
+
+#navigation a:hover {
+      color:#FFFFFF ;
+      background-color: #711515;
+}
+
+/*-------------------------middle-------------*/
+#container{
+	width:100%;
+	margin:0px auto 0 auto;
+	float:left; color:#584200;
+	background-color:#FFF9E5;
+	}
+/*---------------footer---------*/
+#foo1{
+	width:100%;	height:80px; float:left;	background-color:#353535; color:#fff;
+	}
+#footer_div{
+	width:303px;
+	margin:0 auto 0 auto;
+	height:150px;
+	}
+#footer_div ul{
+	width:303px;
+	height:20px;
+	display:block;
+	list-style-type:none;
+	margin:32px 0 0px 20px;
+	}
+#footer_div ul li{
+	display:block;
+	float:left;
+	font:12px/11px Arial, Helvetica, sans-serif;
+	color:#FFFFFF; background-color:#353535;
+		}
+#footer_div ul li a{
+	font:12px/16px Arial, Helvetica, sans-serif; color:#FDFDFD;	text-decoration:none; background-color:#353535;
+	margin:0 8px 0 8px;
+	}
+#footer_div ul li a:hover{
+	text-decoration:underline;
+	}
+
+#footer_div p{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;	font-size:11px;	color:#FFF9E0;	margin:0px 0 0 50px;
+	background-color:#353535;
+	}
+#footer_div p a {
+	color:#FDFDFD; background-color:#353535; text-decoration:underline;
+	}
+#footer_div p a:hover {	
+	color:#FDFDFD;
+	background-color:#4E4E4E;
+	}
+#footer_div ul.css{
+	width:160px;
+	display:block;
+	margin:10px 0 0px 75px;
+	font-size:0px;
+	padding:0px;
+	}
+#footer_div ul.css li{
+	display:block;
+	float:left;
+	margin:0 0 0 0;
+	}
+#footer_div ul.css li a{
+	display:block;
+	text-indent:-2000px;
+	height:24px;
+	margin:0 2px 0 0;
+	font-size:0px;
+	}
+#footer_div ul.css li a.htm{
+	background:url(/statics/images/html.gif) no-repeat 0 0; width:75px;
+		}
+#footer_div ul.css li a.cs{
+	background:url(/statics/images/css.gif) no-repeat; width:75px;
+		}

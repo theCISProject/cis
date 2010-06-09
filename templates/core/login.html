@@ -1,7 +1,6 @@
-{% extends request.base_template %}
-{# {% load i18n %} #}
+{% extends "core-layout.html" %}
 {% block title %}Login{% endblock %}
-{% block login %}
+{% block content %}
 {% if user.is_authenticated %}
 <p>You're already logged in!</p>
 {% else %}
