@@ -8,7 +8,7 @@ from offenses.models import Offense, OffenseCategory
 #TODO: Admin customizition for candy eye look.
 
 class OffenseAdmin(admin.ModelAdmin):
-    pass
+    list_display=('offense_title','offense_category')
 
 admin.site.register(Offense,OffenseAdmin)
 admin.site.register(OffenseCategory)

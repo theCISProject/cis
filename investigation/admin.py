@@ -5,7 +5,11 @@ from django.contrib import admin
 
 from investigation.models import *
 
-admin.site.register(Register)
+class RegisterAdmin(admin.ModelAdmin):
+	list_display=('ir_number','rb_number','complainant','accused','offense')
+
+
+admin.site.register(Register,RegisterAdmin)
 admin.site.register(Complainant)
 admin.site.register(Property)
 admin.site.register(Officer)

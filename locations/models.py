@@ -22,6 +22,7 @@ class Location(models.Model):
     def __unicode__(self):
         return self.name
 
+
 class Country(Location):
     """
         This is a country or states. eg Tanzania
@@ -30,7 +31,6 @@ class Country(Location):
     
     class Meta:
         verbose_name_plural = 'countries'
-
 
 class Region(Location):
     """
