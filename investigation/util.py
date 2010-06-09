@@ -2,6 +2,17 @@ from django.db import models
 from investigation.models import *
 import random
 
+name_list=['John','Allen','Oswald','Auson','Gerald','Salome','Irene','Hildebrand','Mukulu','Hamis',
+			'Paula','Gosbert','Jackson','Peter','Henry','Terence','Pius','Godfrey','Renatha','Humphrey',
+			'Tumaini','Mbwana','Daniel','Adnan','Charles','Komba','Baraka','Oscar','Cosmas','Clement',
+			'Pavati','Patel','Ramji','Husna','Lilian','Conrad','Jeremiah','Donald','David','Canicius',
+			'Joseph','Silonda','Hanson','Yusuph','Ally','Bitego','Kagoma','Marium','Happy','Raymond',
+			'Julius','Smith','Anderson','Lawrence']
+occupation_list=['analyst','programmer','accountant','engineer','sales person','manager','proprietor',
+				 'artist','musician','actor','rapper','cook','house wife','officer','driver','student',
+				 'designer','comedian']
+religion_list=['christian','budha','hindus','islam','pagan']
+
 class Util():
 	def resample(self,startnum,endnum):
 		register = Register()
