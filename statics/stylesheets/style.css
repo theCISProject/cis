@@ -383,8 +383,8 @@ a:hover {
 	color: red;
 }
 #submit-go:hover {
-/* 	background-position:0 -26px; */
-	background-color: #2AA1CC;
+ 	background-position:0 -26px; 
+/*	background-color: #2AA1CC;	*/
 }
 #submit-go {
 	margin-top:1em;

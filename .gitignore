@@ -4,4 +4,4 @@
 .pydevproject
 .settings/*
 *.*~
-
+*.xcf.gz
