@@ -4,29 +4,31 @@
 {% if user.is_authenticated %}
 <p>You're already logged in!</p>
 {% else %}
-<div id="login">
-    <h2>(CIS) <span>Login</span></h2>
-      <form method="POST" action=".">
-	  	
-	<table>
-	  <tr>
-	    <td><p>{{ form.username.label_tag }}</p></td>
-	    <td>{{ form.username }} </td>
-	  </tr>
-	  <tr>
-	    <td><p>{{ form.password.label_tag }}</p></td>
-	    <td>{{ form.password }}</td>
-	  </tr>
-	  <tr>
-	      <td><input type="hidden" name="next" value="{{ next }}" /></td>
-	      <td><input type="submit" value="Login" class="button" /></td>
-	  </tr>
-	    {% if form.errors %}
-	      <font color="red">Your username and password didn't match. Please try again.</font>
-	    {% endif %}
-	</table>
-      </form>
-</div>
+
+			<div id="login-form">
+				<form action="." method="POST">
+					<p class="form_errors">
+						{% if form.errors %}
+							Your username and password didn't match. Please try again.
+						{% endif %}
+					</p>
+					<fieldset class="login">
+						<legend class="title" >CIS Login</legend>
+						<div>
+							<label for="username">{{ form.username.label_tag }}</label> {{ form.username }}
+						</div>
+						<div>
+							<label for="password">{{ form.password.label_tag }}</label> {{ form.password }}
+						</div>
+						<div>
+							<div><input type="hidden" name="next" value="{{ next }}" /></div>
+							<div><button type="submit" id="submit-go" value='Login'>Login</button></div>
+						</div>
+					</fieldset>
+				</form>
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+			<!-- end #login-form -->
 {% endif %}
 {% endblock %}
 

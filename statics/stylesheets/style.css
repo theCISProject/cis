@@ -1,226 +1,447 @@
-/* CSS Document */
-body{
-	padding:0;
-	margin:0;
-	font-family:Arial, Helvetica, sans-serif;
-		}
-div, img, p, h1, h2, h3, ul, li{
-	padding:0;
-	margin:0;
-	}
-.blank {
-	font-size:0px; line-height:0px; clear:both;
-	}
-ul{	
-	list-style-type:none;
-	}
-/*---------------------header part-------*/
-#header{
-	width:100%;
-	margin:0 auto 0 auto;	
+
+/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+/*---------Individual tags styles------*/
+body {
+	margin: 0;
+	padding: 0;
+	background: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #A19D9A;
 }
 
-/*----------------------login--------------------*/
-#login{
-	height:200px;
-	background-color: #F3FBFE;
-	margin: 0  0 20px ;
-	padding-left: 20%;
-}
-#login table {
-      margin: 3%;
-      border: 1px solid #7FD7F7;
-/*       background-color: #E5F7FD; */
-      background:url(/statics/images/lock.png) no-repeat #E5F7FD;
-      background-position: right;
-      width: 500px;
-      height: 130px;
-      padding: 15px;
+h1, h2, h3 {
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+	color: #3E3530;
 }
 
-#login table p{
-      text-align: right;
-      font-weight:bold;
-      color: #333;
-      font-size: 0.9em;
-}
-#login .button{
-      float: left;
-      background-color: #98C73F;
-      width: 7em;
-      border: 1px solid #FFF;
-      font-weight:bold;
+h1 {
+	font-size: 2em;
 }
 
-#login .button:hover{
-      background-color: #80C908;
-}
-#id_username, #id_password{
-      border: 2px solid #CCC;
+h2 {
+	font-size: 2.8em;
 }
 
-#id_username:hover, #id_password:hover{
-      border: 2px solid #98C73F;
+h3 {
+	font-size: 1.6em;
 }
 
-#login h2{
-	width:128px; padding:32px 0 0 49px;	font-family:Georgia, "Times New Roman", Times, serif;
-	font-size:48px;	color:#1892AC;	font-weight:normal;	display:block;	float:left;
-	}
-#login h2 span{
-	font-size:30px;
+p, ul, ol {
+	margin-top: 0;
+	line-height: 180%;
 }
-/*--------------currentlogin-block------------*/
-#currentlogin-block{
+
+ul, ol {
+}
+
+a {
+	text-decoration: none;
+	color: #339CCB;
+}
+
+a:hover {
+}
+
+/*----------The whole block style-----------*/
+#wrapper {
+	margin: 0 auto;
+	padding: 0;
+}
+
+/*------Header style (contains logo & nav. menu)-----------------*/
+
+#header {
+	height: 100px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0px 0px 0px 0px;
+	background: #1582AB;
+	border-bottom: 10px solid #2AA1CC;
+}
+
+/*--------Logo and text------------*/
+
+#logo {
+	float: left;
+	width: 30%;
+	margin: 0;
+	padding: 0;
+	color: #000000;
+/* 	removed the logo till we get a real logo for cis */
+/* 	background: url(/statics/images/img02.jpg) no-repeat 15px; */
+}
+
+#logo h1, #logo p {
+}
+
+#logo h1 {
+	margin-left: 60px;
+	padding: 40p 0px 0px 80px;
+	letter-spacing: -1px;
+	text-transform: uppercase;
+	font-family:"Times New Roman","Sans";
+	font-size: 3.8em;
+	background: redc;
+}
+
+#logo p {
+	margin: 0;
+	padding: 0px 0 0 62px;
+	font: normal 14px Georgia, "Times New Roman", Times, serif;
+	font-style: italic;
+	color: #FFFFFF;
+} 
+
+#logo a {
+	border: none;
+	background: none;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+/*---------- Navigation Menu--------------*/
+
+#menu {
+	float: right;
+	width: 70%;
+	height: 90px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+#menu ul {
+	margin: 0px 5px 0px 0px;
+	padding: 60px 0px 0px 0px;
+	list-style: none;
+	line-height: normal;
+}
+
+#menu li {
+	float: right;
+}
+
+#menu a {
+	display: block;
+	margin-right: 1px;
+	padding: 10px 15px 15px 15px;
+	text-decoration: none;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #FFFFFF;
+	border: none;
+}
+
+#menu a:hover, #menu .current_page_item a {
+	background: #2AA1CC;
+	text-decoration: none;
+}
+
+#menu .current_page_item a {
+}
+
+/*-----------Page (contains content & sidebar)---------*/
+
+#page {
+	width: 98%;
+	margin: 0 auto;
+	padding: 20px 0px;
+}
+
+/*--------Content (left portion of page)---------*/
+
+#content {
+	float: left;
+	width: 70%;
+	padding: 0px 0px 0px 0px;
+}
+
+.post {
+	margin-bottom: 40px;
+	border-bottom: 1px dotted #E7E2DC;
+}
+
+.post .title {
+	height: 41px;
+	padding: 7px 0px 0px 30px;
+	letter-spacing: -.5px;
+}
+
+.post .title a {
+	color: #333333;
+	border: none;
+}
+
+.post .meta {
+	margin-bottom: 30px;
+	padding: 0px 30px 0px 30px;
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.post .meta .date {
+	float: left;
+}
+
+.post .meta .posted {
+	float: right;
+}
+
+.post .meta a {
+}
+
+.post .entry {
+	padding: 0px 30px 20px 30px;
+	padding-bottom: 20px;
+	text-align: justify;
+}
+
+.links {
+	padding-top: 20px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+/*--------Sidebar(right portion of page)-------*/
+
+/*--------Search(inside sidebar)--------*/
+#search {
+	float: right;
+	height: 60px;
+	padding: 20px 0px 0px 0px;
+}
+
+#search form {
+	height: 41px;
+	margin: 0;
+	padding: 10px 0 0 0px;
+}
+
+#search fieldset {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+#search-text {
+	width: 170px;
+	padding: 6px 5px 2px 5px;
+	border: 1px solid #DEDEDE;
+	background: #FFFFFF;
+	text-transform: lowercase;
+	font: normal 11px Arial, Helvetica, sans-serif;
+	color: #5D781D;
+}
+
+#search-submit {
+	width: 50px;
+	height: 22px;
+	border: none;
+	background: #B9B9B9;
+	color: #000000;
+}
+
+#sidebar {
+	float: right;
+	width: 25%;
+	margin: 0px;
+	padding: 0px 20px 0px 0px;
+	color: #787878;
+}
+
+#sidebar ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#sidebar li {
+	margin: 0;
+	padding: 0;
+}
+
+#sidebar li ul {
+	margin: 0px 0px;
+	padding-bottom: 30px;
+}
+
+#sidebar li li {
+	line-height: 35px;
+	border-bottom: 1px dotted #E7E2DC;
+	margin: 0px 30px;
+	border-left: none;
+}
+
+#sidebar li li span {
+	display: block;
+	margin-top: -20px;
+	padding: 0;
+	font-size: 11px;
+	font-style: italic;
+}
+
+#sidebar li li a {
+	padding: 0px 0px 0px 15px;
+	background: url(/statics/images/img01.jpg) no-repeat left 5px;
+}
+
+#sidebar h2 {
+	height: 38px;
+	padding-left: 30px;
+	letter-spacing: -.5px;
+	font-size: 1.8em;
+}
+
+#sidebar p {
+	margin: 0 0px;
+	padding: 0px 30px 20px 30px;
+	text-align: justify;
+}
+
+#sidebar a {
+	border: none;
+	color: #339CCB;
+}
+
+#sidebar a:hover {
+	text-decoration: underline;
+	color: #8A8A8A;
+}
+
+/*------- Login-----------*/
+#login-form {
+	float: left;
+	padding: 5px 0px 5px 40%;
+}
+#login-form label{
+	color: #339CCB;
+	font-size: 12px;
+	font-weight: bold;
+}
+#login-form #id_username, #login-form #id_password{
+	border: 2px solid #2AA0CB;
+}
+#login-form #id_username:hover, #login-form #id_password:hover{
+       border: 2px solid #1581AA;
+/* 	border: 2px solid #98C73F; */
+}
+#login-form .title{
+		color:#1581AA;
+}
+#login-form form{
+	background:#F3FBFE;
+	padding:1em;
+	border:1px solid #eee;
+	margin:1em;
+	width:40em;
+}
+#login-form .login {
+	background:url(/statics/images/lock.png) no-repeat 95% 0.5em #E5F7FD;
+	border:1px solid #999;
+}
+#login-form input {
+	padding:0.15em;
+	width:10em;
+	border:1px solid #ddd;
+	background:#fafafa;
+	font:bold 0.95em arial, sans-serif;
+	/*-moz-border-radius:0.4em;
+	-khtml-border-radius:0.4em;*/
+}
+#login-form input:hover, input:focus {
+	border-color:#c5c5c5;
+	background:#f6f6f6;
+} 
+#login-form fieldset {
+	border:1px solid #ddd;
+	padding:0 0.5em 0.5em;
+}
+#login-form fieldset div {
+	margin:0.3em 0;
+	clear:both;
+}
+#login-form label {
+	float:left;
+	width:10em;
+	text-align:right;
+	margin-right:1em;
+}
+#login-form .form_errors {
+	text-align: center;
+	color: red;
+}
+#submit-go:hover {
+/* 	background-position:0 -26px; */
+	background-color: #2AA1CC;
+}
+#submit-go {
+	margin-top:1em;
+	margin-left:14em;
+	width:69px;
+	height:26px;
+/* 	text-indent:-9999px; */
+	overflow:hidden;
+/*  	border:0;  */
+	border: 1px solid #2AA1CC;
+	background-color: #1582AB;
+/* 	background:url(/statics/images/submit-button.gif) no-repeat 0 0; */
+	display:block;
+	cursor:pointer !important; cursor:hand;
+	color: #FFF;
+	font-weight: bold;
+}
+
+/*-------------Login Session Name-------------*/
+#login-session-name{
       position:absolute;
       top: 0;
       right: 0;
-      color: #FFF;
-      font-size: 0.8em;
-      width: 100%;
-      background-color: #000;
-      text-align: right;
+      color: #FFFFFF;
+      font-size: 1em;
 }
-
-#currentlogin-block a{
+#login-session-name a{
       color: #FFF;
+      font-weight: bold;
       text-decoration: none;
 }
 
-#currentlogin-block a:hover{
+#login-session-name a:hover{
       text-decoration: underline;
 }
 
-/* --------------branding---------------- */
+/* Footer */
 
-#branding{
-      color: #FFF;
-      font-size: 0.8em;
-      width: 100%;
-      background-color: #A9D2E4;
-      height: 60px;
+#footer {
+	height: 50px;
+	margin: 0 auto;
+	padding: 0px 0px 15px 0px;
+	background: #1582AB;
+	border-top: 1px solid #1885B0;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
-#branding h1{
-	margin-top: 15px;
-	font:1em Arial, Helvetica, sans-serif; 
-	width:114px;	
-	display:block;	
-	color:#FFF;	
-	font-weight:bold;
-	height: 40px;
-}
-
-#branding .site_branding{
-      float: right;
-}
-
-#branding .cis_branding{
-      float: left;
-}
-
-/* ------------navigation--------------- */
-
-#navigation{
-	  width: 100%;
-	  font-size: 100%;
-	  background-color: #B51032;
-}
-
-#navigation ul {
-	list-style: none;
+#footer p {
 	margin: 0;
-	padding: 0;
-	padding-top: 1em;
+	padding-top: 20px;
+	line-height: normal;
+	font-size: 9px;
+	text-transform: uppercase;
+	text-align: center;
+	color: #FFFFFF;
 }
 
-#navigation li {
-	display: inline;
+#footer a {
+	color: #FFFFFF;
 }
-
-#navigation a:link a:visited {
-      padding: 04em 1em 0.4em 1em;
-      background-color: #B51032;
-      color: #FFFFFF;
-      text-decoration: none;
-      border: 1px solid #711515;
-}
-
-#navigation a:hover {
-      color:#FFFFFF ;
-      background-color: #711515;
-}
-
-/*-------------------------middle-------------*/
-#container{
-	width:100%;
-	margin:0px auto 0 auto;
-	float:left; color:#584200;
-	background-color:#FFF9E5;
-	}
-/*---------------footer---------*/
-#foo1{
-	width:100%;	height:80px; float:left;	background-color:#353535; color:#fff;
-	}
-#footer_div{
-	width:303px;
-	margin:0 auto 0 auto;
-	height:150px;
-	}
-#footer_div ul{
-	width:303px;
-	height:20px;
-	display:block;
-	list-style-type:none;
-	margin:32px 0 0px 20px;
-	}
-#footer_div ul li{
-	display:block;
-	float:left;
-	font:12px/11px Arial, Helvetica, sans-serif;
-	color:#FFFFFF; background-color:#353535;
-		}
-#footer_div ul li a{
-	font:12px/16px Arial, Helvetica, sans-serif; color:#FDFDFD;	text-decoration:none; background-color:#353535;
-	margin:0 8px 0 8px;
-	}
-#footer_div ul li a:hover{
-	text-decoration:underline;
-	}
-
-#footer_div p{
-	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;	font-size:11px;	color:#FFF9E0;	margin:0px 0 0 50px;
-	background-color:#353535;
-	}
-#footer_div p a {
-	color:#FDFDFD; background-color:#353535; text-decoration:underline;
-	}
-#footer_div p a:hover {	
-	color:#FDFDFD;
-	background-color:#4E4E4E;
-	}
-#footer_div ul.css{
-	width:160px;
-	display:block;
-	margin:10px 0 0px 75px;
-	font-size:0px;
-	padding:0px;
-	}
-#footer_div ul.css li{
-	display:block;
-	float:left;
-	margin:0 0 0 0;
-	}
-#footer_div ul.css li a{
-	display:block;
-	text-indent:-2000px;
-	height:24px;
-	margin:0 2px 0 0;
-	font-size:0px;
-	}
-#footer_div ul.css li a.htm{
-	background:url(/statics/images/html.gif) no-repeat 0 0; width:75px;
-		}
-#footer_div ul.css li a.cs{
-	background:url(/statics/images/css.gif) no-repeat; width:75px;
-		}

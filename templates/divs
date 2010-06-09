@@ -1,0 +1,12 @@
+body { margin:0; padding:0; color:#A19D9A}
+
+wrapper{margin:0px pading:0px}	
+	header{height:100px; width:100%; margin:0 auto; padding:0px 0px 0px 30px; border-bottom:10px solid}
+		login-session-name{position:absolute;top:0;right:0}
+		logo{float:left;width:30%;margin:0 padding:0}
+		menu{float:right;width:40%;height:90px;margin: 0 auto;padding:0}
+	page{width:98%;margin:0 auto;padding: 0px 0px 0px 0px;}
+		content{float:left;width:70%;padding: 0px 0px 0px 0px}
+		sidebar{float:right;width:25%;margin:0px;padding:0px 20px 0px 0px}
+
+footer{height:50px;margin:0px;padding: 0px 0px 15px 0px;border-top:1px solid}
