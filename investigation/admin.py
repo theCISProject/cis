@@ -6,7 +6,7 @@ from django.contrib import admin
 from investigation.models import *
 
 class RegisterAdmin(admin.ModelAdmin):
-	list_display=('ir_number','rb_number','complainant','accused','offense')
+	list_display=('ir_number','reportbook','complainant','accused','offense')
 
 
 admin.site.register(Register,RegisterAdmin)

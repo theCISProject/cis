@@ -36,30 +36,30 @@ class Region(Location):
     """
         This sub division of the country eg Dar es salaam, Mwanza
     """
+    country = models.ForeignKey(Country)
     area = models.PolygonField(blank=True)
-    parent = models.ForeignKey(Country)
     
 class District(Location):
     """
         A sub-division of the region, 
-    """ 
+    """
+    region = models.ForeignKey(Region)
     area = models.PolygonField(blank=True)
-    parent = models.ForeignKey(Region)
 
 class Ward(Location):
     """
         A sub-division of the district, 
-    """ 
+    """
+    region = models.ForeignKey(Region)
     area = models.PolygonField(blank=True)
-    parent = models.ForeignKey(Region)
     
 class Station(Location):
     """
         A Station is a police station where crimes a reported.
     """
+    ward = models.ForeignKey(Ward)
     zone = models.ForeignKey(Zone)
 
-    parent = models.ForeignKey(Ward)
     point = models.PointField(blank=True)
     
     class Meta:

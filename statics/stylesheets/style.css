@@ -345,7 +345,7 @@ a:hover {
 	padding:1em;
 	border:1px solid #eee;
 	margin:1em;
-	width:40em;
+	width:32em;
 }
 #login-form .login {
 	background:url(/statics/images/lock.png) no-repeat 95% 0.5em #E5F7FD;
@@ -391,16 +391,12 @@ a:hover {
 	margin-left:14em;
 	width:69px;
 	height:26px;
-/* 	text-indent:-9999px; */
+	text-indent:-9999px;
 	overflow:hidden;
-/*  	border:0;  */
-	border: 1px solid #2AA1CC;
-	background-color: #1582AB;
-/* 	background:url(/statics/images/submit-button.gif) no-repeat 0 0; */
+	border:0;
+	background:url(/statics/images/submit-button.gif) no-repeat 0 0;
 	display:block;
 	cursor:pointer !important; cursor:hand;
-	color: #FFF;
-	font-weight: bold;
 }
 
 /*-------------Login Session Name-------------*/

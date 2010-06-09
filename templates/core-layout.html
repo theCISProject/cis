@@ -33,11 +33,16 @@ Released   : 20100529
 	<div id="header">
 		<div id="login-session-name">
 		  {% if user.is_authenticated %}        
-		      Logged in as <strong>{{user}}</strong>
-		      &nbsp;&nbsp;<a href="/admin/">Admin</a>&nbsp;&nbsp; |
+		      Logged in as
+		      <strong>
+				{% if user.first_name and user.last_name %}
+					{{user.first_name }} {{ user.last_name }}
+				{% else %}
+					{{ user.username|capfirst }}
+				{% endif %}
+		      </strong>
+		      &nbsp;&nbsp;| <a href="/admin/">Admin</a>&nbsp;&nbsp; |
 		      &nbsp;&nbsp;<a href="{% url core.views.logout %}">Log out</a>
-		  {%else%}
-		      <a href="{% url core.views.login %}">Log in</a>
 		  {%endif%}
 		</div>
 		<!-- end #login-session-name -->

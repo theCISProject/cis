@@ -16,7 +16,7 @@ from locations.models import Station
 
 class Register(models.Model):
 	ir_number = models.IntegerField('IR Number',help_text="Investigation Number, Integer counts from 1 yearly")
-	rb_number = models.ForeignKey('ReportBook',help_text="Report book number,[Number/Date]")
+	reportbook = models.ForeignKey('ReportBook',help_text="Report book number,[Number/Date]")
 	complainant = models.ForeignKey('Complainant',help_text="Details of complainant")
 	property = models.ForeignKey('Property',help_text="Stolen and recovered property's worth")
 	officer = models.ForeignKey('Officer',help_text="Officer's details [Name & Position]")

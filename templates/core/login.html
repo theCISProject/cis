@@ -7,11 +7,6 @@
 
 			<div id="login-form">
 				<form action="." method="POST">
-					<p class="form_errors">
-						{% if form.errors %}
-							Your username and password didn't match. Please try again.
-						{% endif %}
-					</p>
 					<fieldset class="login">
 						<legend class="title" >CIS Login</legend>
 						<div>
@@ -25,6 +20,11 @@
 							<div><button type="submit" id="submit-go" value='Login'>Login</button></div>
 						</div>
 					</fieldset>
+										<p class="form_errors">
+						{% if form.errors %}
+							Incorrect username or password. Try again.
+						{% endif %}
+					</p>
 				</form>
 				<div style="clear: both;">&nbsp;</div>
 			</div>
