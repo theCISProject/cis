@@ -3,7 +3,7 @@
 
 from django.db import models
 
-from offenses.models import Offense
+from offenses.models import Offense, OffenseCategory
 from locations.models import Station
 
 # Create your models here.
@@ -26,6 +26,8 @@ class Register(models.Model):
 	results = models.ForeignKey('Result',help_text="Results of investigation [Explanation]")
 	remarks = models.ForeignKey('Remark',help_text="How the case ended, or where it reached")
 	court_case_number = models.IntegerField(blank=True,null=True,help_text='Court case Number if case was opened')
+	
+	
 	def __unicode__(self):
 		return 'IR Number: %d    Complainant %s' % ( self.ir_number, self.complainant)
 
@@ -35,7 +37,7 @@ class Remark(models.Model):
 		return '%s' % (self.description)
 
 class ReportBook(models.Model):
-	station = models.OneToOneField(Station,help_text="Police Station Where Offence was registered")
+	station = models.ForeignKey(Station,help_text="Police Station Where Offence was registered")
 	book_date = models.DateField(help_text="Date of the report book where offense is registered")
 	ir_number = models.IntegerField(help_text="IR Number of the dated report book in police station")
 	def __unicode__(self):

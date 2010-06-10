@@ -6,7 +6,9 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^statics/(?P<path>.*)$', 'django.views.static.serve',
-        {'document_root': settings.STATIC_DOC_ROOT}),
+        {'document_root': settings.STATIC_DOC_ROOT}
+    ),
+    (r'^reports/',include('cis.investigation.urls')),
     (r'^admin/', include(admin.site.urls)),
     url(r'^$', 'core.views.dashboard', name="homepage"),
     (r'', include('cis.core.urls')),

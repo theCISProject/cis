@@ -14,11 +14,11 @@ occupation_list=['analyst','programmer','accountant','engineer','sales person','
 religion_list=['christian','budha','hindus','islam','pagan']
 
 class Util():
-	def resample(self,startnum,endnum):
+	def resampleRegister(self,startnum,endnum):
 		register = Register()
-		for count in range(5,60):
+		for count in range(1,60):
 			register.ir_number = count
-			register.rb_number = ReportBook.objects.get(pk=random.randint(1,ReportBook.objects.count()))
+			register.reportbook = ReportBook.objects.get(pk=random.randint(1,ReportBook.objects.count()))
 			register.complainant = Complainant.objects.get(pk=random.randint(1,Complainant.objects.count()))
 			register.property = Property.objects.get(pk=random.randint(1,Property.objects.count()))
 			register.officer = Officer.objects.get(pk=random.randint(1,Officer.objects.count()))
@@ -31,3 +31,4 @@ class Util():
 			register.save()
 			register = None
 			register = Register()
+	def resampleOfficer(self):

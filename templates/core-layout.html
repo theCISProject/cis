@@ -1,19 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-Design by Free CSS Templates
-http://www.freecsstemplates.org
-Released for free under a Creative Commons Attribution 2.5 License
-
-Name       : Regeneracy   
-Description: A two-column, fixed-width design with dark color scheme.
-Version    : 1.0
-Released   : 20100529
-
--->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
+<meta name="keywords" content="CIS, Criminal Information System, TZ CIS" />
+<meta name="CIS, Criminal Information System, Crime Information system, TZ CIS, TZ Crime Information System" />
+<meta name="description" content="Offenses information logs, Reports,
+	Charts and Maps depicting offense statistics in Tanzania, rangingfrom day to day stats to annual" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <title>
             {% block title %}{% endblock%}{% block title_suffix %} - Criminal Information System{% endblock %}
@@ -33,12 +24,12 @@ Released   : 20100529
 	<div id="header">
 		<div id="login-session-name">
 		  {% if user.is_authenticated %}        
-		      Logged in as
+		      Welcome
 		      <strong>
 				{% if user.first_name and user.last_name %}
-					{{user.first_name }} {{ user.last_name }}
+					{{user.first_name }} {{ user.last_name }}.
 				{% else %}
-					{{ user.username|capfirst }}
+					{{ user.username|capfirst }}.
 				{% endif %}
 		      </strong>
 		      &nbsp;&nbsp;| <a href="/admin/">Admin</a>&nbsp;&nbsp; |

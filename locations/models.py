@@ -27,7 +27,7 @@ class Country(Location):
     """
         This is a country or states. eg Tanzania
     """
-    area = models.PolygonField(blank=True)
+    #area = models.PolygonField(blank=True)
     
     class Meta:
         verbose_name_plural = 'countries'
@@ -37,30 +37,30 @@ class Region(Location):
         This sub division of the country eg Dar es salaam, Mwanza
     """
     country = models.ForeignKey(Country)
-    area = models.PolygonField(blank=True)
+    #area = models.PolygonField(blank=True)
     
 class District(Location):
     """
         A sub-division of the region, 
     """
     region = models.ForeignKey(Region)
-    area = models.PolygonField(blank=True)
+    #area = models.PolygonField(blank=True)
 
 class Ward(Location):
     """
         A sub-division of the district, 
     """
-    region = models.ForeignKey(Region)
-    area = models.PolygonField(blank=True)
+    district = models.ForeignKey(District)
+    #area = models.PolygonField(blank=True)
     
 class Station(Location):
     """
         A Station is a police station where crimes a reported.
     """
     ward = models.ForeignKey(Ward)
-    zone = models.ForeignKey(Zone)
+    zone = models.ForeignKey(Zone,blank=True,null=True)
 
-    point = models.PointField(blank=True)
+    #point = models.PointField(blank=True)
     
     class Meta:
         verbose_name = "police station"

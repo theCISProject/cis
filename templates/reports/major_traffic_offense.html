@@ -1,0 +1,21 @@
+{% extends "core-layout.html" %}
+{% block title %}Major Traffic Offenses {% endblock %}
+{% block content %}
+	{% if user.is_authenticated %}
+		{% if registers %}
+			<table>
+			{% for register in registers %}
+					<tr>
+						<td>{{ register.ir_number }}</td>
+						<td>{{ register.reportbook }}</td>
+						<td>{{ register.complainant }}</td>
+						<td>{{ register.offense }}</td>
+					</tr>
+			{% endfor %}
+			</table>
+		{% else %}
+			<p>No Major Traffic offenses!</p>
+		{% endif %}
+
+	{% endif %}
+{% endblock %}
