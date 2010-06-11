@@ -1,8 +1,10 @@
 # Create your views here.
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.contrib.auth.decorators import login_required
 from investigation.models import Register, Offense, OffenseCategory, ReportBook
 
+@login_required()
 def major_traffic_offenses(request):
 	registers = Register.objects.filter(offense__offense_category__rank=u'MAJ')
 	context = {
