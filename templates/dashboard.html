@@ -2,10 +2,43 @@
 {# {% extends request.base_template %} #}
 {% block title %}Dashboard{% endblock %}
 
-{% block content %}	
+{% block javascripts %}
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAwLx05eiFcJGGICFj_Nm3yxSy7OMGWhZNIeCBzFBsFwAAIleLbBRLVT87XVW-AJJ4ZR3UOs3-8BnQ-A"></script>
+<script type="text/javascript" src="/statics/javascripts/jquery-1.3.2.min.js"></script>
+
+<!--Map specific script... later moved to it's own file-->
+<script>
+var map, marker, geocoder, current_object;
+
+function initialize() {
+    if (GBrowserIsCompatible()) {
+        map = new GMap2(document.getElementById('map'));
+        map.setCenter(new GLatLng(-6.369028, 34.888822), 6);
+        map.setUIToDefault();
+        geocoder = new GClientGeocoder();
+   }
+}
+
+</script>
+
+<style>
+	#map{
+	    width: 600px; 
+	    height: 350px;
+		border: 1px solid #666;
+		margin: 0 auto;
+	    }
+</style>
+{% endblock %}
+
+{% block body %}
+<body onload="initialize()" onunload="GUnload()">
+{% endblock %}
+{% block content %}
 			<div class="post">
-				<h2 class="title">This is Dashboard</h2>
+				<h2 class="title">Recent Crimes</h2>
 				<!--<div style="clear: both;">&nbsp;</div>-->
+				<div id="map"></div>
 					<div class="entry">
 						<p>
 						    Welcome to <strong>CIS</strong> dashboard
@@ -59,3 +92,4 @@
 				</li>
 			  </ul>-->
 {% endblock %}
+</body>

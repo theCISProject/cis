@@ -384,17 +384,20 @@ a:hover {
 }
 #submit-go:hover {
  	background-position:0 -26px; 
-/*	background-color: #2AA1CC;	*/
+	background-color: #2AA1CC;	
 }
 #submit-go {
 	margin-top:1em;
 	margin-left:14em;
 	width:69px;
 	height:26px;
-	text-indent:-9999px;
+/* 	text-indent:-9999px; */
+	color: #fff;
 	overflow:hidden;
-	border:0;
-	background:url(/statics/images/submit-button.gif) no-repeat 0 0;
+	border: 1px solid #0C4293;
+	font-weight: bold;
+	background-color: #1582AB;	
+/* 	background:url(/statics/images/submit-button.gif) no-repeat 0 0; */
 	display:block;
 	cursor:pointer !important; cursor:hand;
 }
