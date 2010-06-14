@@ -346,10 +346,12 @@ a:hover {
 	border:1px solid #eee;
 	margin:1em;
 	width:32em;
+	-moz-border-radius:5px 5px 5px 5px;
 }
 #login-form .login {
 	background:url(/statics/images/lock.png) no-repeat 95% 0.5em #E5F7FD;
 	border:1px solid #999;
+	-moz-border-radius:3px 3px 3px 3px;
 }
 #login-form input {
 	padding:0.15em;
@@ -391,15 +393,19 @@ a:hover {
 	margin-left:14em;
 	width:69px;
 	height:26px;
+	text-align: center;
 /* 	text-indent:-9999px; */
 	color: #fff;
 	overflow:hidden;
 	border: 1px solid #0C4293;
-	font-weight: bold;
+/*	font-weight: bold;	*/
 	background-color: #1582AB;	
 /* 	background:url(/statics/images/submit-button.gif) no-repeat 0 0; */
 	display:block;
 	cursor:pointer !important; cursor:hand;
+	-moz-border-radius:5px 5px 5px 5px;
+	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+	padding: 3px 12px;
 }
 
 /*-------------Login Session Name-------------*/
