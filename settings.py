@@ -115,4 +115,5 @@ INSTALLED_APPS = (
     'cis.locations',
     'cis.offenses',
     'cis.core',
+    'cis.reports',
 )

@@ -1,5 +1,18 @@
 {% extends "core-layout.html" %}
 {% block title %}Major Traffic Offenses {% endblock %}
+{% block navigation %}
+{% if user.is_authenticated %}
+<ul>	
+	<li><a href="#">Map</a></li>
+	<li><a href="#">Alerts</a></li>
+	<li><a href="#">Users</a></li>
+	<li><a href="#">Stations</a></li>
+	<li class="current_page_item" ><a href="/reports/mto">Reports</a></li>
+	<li><a href="/charts">Charts</a></li>
+	<li><a href="{% url dashboard %}">Dashboard</a></li>
+</ul>
+{% endif %}
+{% endblock %}
 {% block content %}
 	{% if user.is_authenticated %}
 		{% if registers %}
