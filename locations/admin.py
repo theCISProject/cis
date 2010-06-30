@@ -1,25 +1,17 @@
-from django.contrib import admin
+from django.contrib.gis import admin
+from django.contrib.gis.maps.google import GoogleMap
 
-from locations.models import Station, Country, Region, District, Ward
+from locations.models import Country, Region, District, Ward, Station
 
+#TODO: open a google account for cis, for maps, email,
+GMAP = GoogleMap(key='abcdefg') # Can also set GOOGLE_MAPS_API_KEY in settings
 
-class CountryAdmin(admin.ModelAdmin):
-	list_display=('name','code')
+class GoogleAdmin(admin.OSMGeoAdmin):
+    extra_js = [GMAP.api_url + GMAP.key]
+    map_template = 'gis/admin/google.html'
 
-class RegionAdmin(admin.ModelAdmin):
-	list_display=('name','code','country')
-
-class DistrictAdmin(admin.ModelAdmin):
-	list_display=('name','code','region')
-
-class WardAdmin(admin.ModelAdmin):
-	list_display=('name','code','district')	
-
-class StationAdmin(admin.ModelAdmin):
-    list_display=('name','code','ward','zone')
-
-admin.site.register(Country,RegionAdmin)
-admin.site.register(Ward,WardAdmin)
-admin.site.register(Region,RegionAdmin)
-admin.site.register(District,DistrictAdmin)
-admin.site.register(Station,StationAdmin)
+admin.site.register(Station, GoogleAdmin)
+admin.site.register(Country)
+admin.site.register(Region)
+admin.site.register(District)
+admin.site.register(Ward)

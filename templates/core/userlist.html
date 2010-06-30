@@ -1,0 +1,94 @@
+{% extends "core-layout.html" %}
+{# {% extends request.base_template %} #}
+{% block title %}Dashboard{% endblock %}
+
+{% block javascripts %}
+{% endblock %}
+
+
+{% block content %}
+			<div class="post">
+				<h2 class="title">User Management</h2>
+				<!--<div style="clear: both;">&nbsp;</div>-->
+				<h3>
+		            {% if search_string %}
+		            <a href="">Search for <span class="highlight">{{ search_string }}</span></a>
+		            {% endif %}
+		        </h3>
+		        
+		        	<table class="big-table">
+				            {% for column, display in columns %}
+						<col{% ifequal column sort_column %} class="sorted"{% endifequal %} />
+				            {% endfor %}
+						<thead>
+							
+							{% for column, display in columns %}
+							{% ifequal column sort_column %}
+								<th class="sorted {% if sort_descending %}descending{% else %}ascending{% endif %}">
+									<a href="?q={{ search_string }}&sort_descending={% if sort_descending %}false{% else %}true{% endif %}&sort_column={{ column }}" title="Sort by {{ display }}{% if sort_descending %} (asc){% endif %}">
+										{{ display }}
+									</a>
+								</th>
+							{% else %}
+								<th><a href="?q={{ search_string }}&sort_column={{ column }}" title="Sort by {{ display }}">{{ display }}</a></th>
+							{% endifequal %}
+				                        {% endfor%}
+				                        
+				                        <!--Un sorted columns-->
+				                    	<th scope="col">Station</th>
+										<th scope="col">Phone number</th>
+				                        <th scope="col">Action</th>
+				        </thead>
+						<tbody>{% if polices %}{% for police in polices %}
+							<tr>
+								<td><a href="/police/{{ police.pk }}"{% if police.last_name %}>{{ police.last_name }}{% else %} class="unknown">Unknown{% endif %}</a></td>
+				                <td><a href="/police/{{ police.pk }}"{% if police.first_name %}>{{ police.first_name }}{% else %} class="unknown">Unknown{% endif %}</a></td>
+								<td>{% if police.username %}{{ police.username }}{% else %}<span class="na">unknown</span>{% endif %}</td>
+				                <td>{% if police.code %}{{ police.code }}{% else %}<span class="na">unknown</span>{% endif %}</td>
+				                <td>{% if police.created_date %}{{ police.created_date }}{% else %}<span class="na">unknown</span>{% endif %}</td>
+				                {% for profile in profiles %}
+				                	{% ifequal police profile.police %}
+										<td>
+										      {% if profile.station %}{{ profile.station }}{% else %} Unassigned{% endif %}
+										</td>
+										<td>
+										      {% if profile.phone_number %}{{ profile.phone_number }}{% else %} No number{% endif %}										      
+										</td>
+									{% endifequal %}
+								{% endfor %}
+								<td>
+                                    <a href="/police/{{ police.pk }}">Edit</a> |
+                                    <a href="/police/{{ police.pk }}/delete">Delete</a>
+                                </td>
+							</tr>{% endfor %}{% else %}
+							<tr class="no-data">
+								<td colspan="3">
+									No Station Police added Yet.
+									<a href="/police/add" class="add">
+										Add a Station Police
+									</a>
+								</td>
+							</tr>{% endif %}
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="3">
+									pagination NOt yet
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+			</div>
+			
+{% endblock %}
+
+{% block sidebar %}
+<!--  this is how to put stuff on the sidebar -->
+				<h3>Search for Station Police</h3>
+			    <form method="get" id="search">
+	                <input name="q" type="text" value="{{ search_string }}" />
+	                <input type="submit" value="Search" />
+	            </form>   
+{% endblock %}
+</body>
+

@@ -450,3 +450,53 @@ a:hover {
 #footer a {
 	color: #FFFFFF;
 }
+
+/* TABLE STYLES */
+
+table {
+    border: 1px solid #bbbbbb;
+}
+
+/* this puts a scrollable area around a big table, gives it some padding
+   and a slightly different background color so it stands out a little
+*/
+
+.big-table {
+    padding: 5px;
+    overflow:auto;
+    background-color: #f8f8f8;
+}
+
+
+/*
+   Table/column sort stuff.
+   The class "sorted" defines the color, the position
+   of the image, and the padding for the image.  The
+   class "ascending" or "descending" defines which image
+   is used.
+   So the way to get this to show up in html would be
+   <th class="sorted descending">
+*/
+
+th.sorted {
+    background-color: #b2c8ee;
+    background-repeat: no-repeat;
+    background-position: right;
+    padding-right:15px;
+}
+
+th.descending {
+    background-image: url("/statics/images/arrow_up.png");
+}
+
+th.ascending {
+    background-image: url("/statics/images/arrow_down.png");
+}
+
+td.sorted, tr.even td.sorted, tr.odd td.sorted  {
+    background: #e5fbff;
+}
+
+tr.highlight td {
+    background-color: #FFFFCC;
+}

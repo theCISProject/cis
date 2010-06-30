@@ -19,7 +19,7 @@ MANAGERS = ADMINS
 DATABASE_ENGINE = 'mysql'       # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
 DATABASE_NAME = 'cis'		# Using this for mysql db system
 DATABASE_USER = 'root'          # Using this for mysql db system
-DATABASE_PASSWORD = ''          # Using this for mysql db system
+DATABASE_PASSWORD = 'nella'          # Using this for mysql db system
 DATABASE_HOST = ''              # Set to empty string for localhost. Not used with sqlite3.
 DATABASE_PORT = ''              # Set to empty string for default. Not used with sqlite3.
 
@@ -69,6 +69,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.csrf.CsrfMiddleware', 
 )
 
 ROOT_URLCONF = 'cis.urls'

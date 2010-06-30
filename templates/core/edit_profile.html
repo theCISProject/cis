@@ -1,0 +1,31 @@
+{% extends "core-layout.html" %}
+{# {% extends request.base_template %} #}
+{% block title %}Edit Profile{% endblock %}
+
+{% block javascripts %}
+{% endblock %}
+
+
+{% block content %}
+			<div class="post">
+				<h2 class="title">Edit Profile</h2>
+				<!--<div style="clear: both;">&nbsp;</div>-->
+				<div class="entry">
+					<p>
+			            <ul>
+			            	<li><a href="{% url core.views.change_password %}">Change Password</a></li>
+			            	<li><a href="{% url core.views.edit_profile %}">Edit Profile</a></li>
+			            </ul>
+			        </p>
+		        </div>
+		        	
+			</div>
+			
+{% endblock %}
+
+{% block sidebar %}
+<!--  this is how to put stuff on the sidebar -->
+				
+{% endblock %}
+</body>
+

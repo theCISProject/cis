@@ -1,7 +1,6 @@
 from datetime import datetime
 
 from django.contrib.gis.db import models
-from core.models import Zone
 
 # TODO: Creating classes to for geographical locations
 #       and a class to hold police station respect to the
@@ -58,9 +57,8 @@ class Station(Location):
         A Station is a police station where crimes a reported.
     """
     ward = models.ForeignKey(Ward)
-    zone = models.ForeignKey(Zone,blank=True,null=True)
-
-    #point = models.PointField(blank=True)
+#    point = models.PointField()
+    
     
     class Meta:
         verbose_name = "police station"

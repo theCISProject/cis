@@ -1,11 +1,6 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 from django.contrib import admin
 
-from core.models import Zone, PoliceProfile
+from core.models import PoliceProfile, StationPolice
 
-admin.site.register(Zone)
+admin.site.register(StationPolice)
 admin.site.register(PoliceProfile)
-
-
