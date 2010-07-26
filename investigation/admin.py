@@ -6,7 +6,7 @@ from django.contrib import admin
 from investigation.models import *
 
 class RegisterAdmin(admin.ModelAdmin):
-	list_display=('ir_number','reportbook','complainant','accused','offense')
+	list_display=('reportbook','complainant','accused','offense')
 	list_filter=('reportbook','offense',)
 	list_per_page=50
 	search_fields=['offense__offense_title','offense__offense_category']

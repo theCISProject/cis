@@ -18,11 +18,3 @@ class StationPoliceForm(forms.Form):
     phone_number = forms.CharField(max_length=13, null=True, blank=True)
     email = forms.EmailField()
     
-class ChangePasswordForm(forms.Form):
-    """
-        A form to change user password.
-    """
-    current_password = forms.PasswordField()
-    new_password = forms.PasswordField()
-    verify_new_password = forms.PasswordField()
-    

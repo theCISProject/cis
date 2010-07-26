@@ -16,8 +16,6 @@ class Location(models.Model):
     added_date = models.DateTimeField(default=datetime.now)
     modified_date = models.DateTimeField(null=True, blank=True)
     
-    objects = models.GeoManager()
-    
     def __unicode__(self):
         return self.name
 
@@ -59,6 +57,7 @@ class Station(Location):
     ward = models.ForeignKey(Ward)
 #    point = models.PointField()
     
+#    objects = models.GeoManager()
     
     class Meta:
         verbose_name = "police station"
