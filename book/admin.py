@@ -32,17 +32,19 @@ class ArrestInline(admin.TabularInline):
 	extra = 1
 
 class ArrestAdmin(admin.ModelAdmin):
-	pass
+	list_display = ('report','name',
+					'status',
+					)
+	search_fields = ['status','name']
 
 class InformationAdmin(admin.ModelAdmin):
 	pass
 class ReportAdmin(admin.ModelAdmin):
-	#~ list_display = ('serial_number', 'date', 'time', 'personal_information',
-					#~ 'report_detail', 'investigation_number', 'action',
-					#~ 'accused', 'arrest', 'property_detail', 'status'
-					#~ )
+	list_display = ('serial_number', 'investigation_number', 'property_detail',
+					'status',
+					)
 	inlines = [DetailInline, ActionInline, AccusedInline, ArrestInline]
-	search_fields = ['serial_number']
+	search_fields = ['serial_number','investigation_number','property_detail']
 
 admin.site.register(Report,ReportAdmin)
 admin.site.register(Arrest,ArrestAdmin)

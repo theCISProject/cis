@@ -6,7 +6,7 @@ from investigation.models import Register, Offense, OffenseCategory, ReportBook
 
 @login_required()
 def major_traffic_offenses(request):
-	registers = Register.objects.filter(offense__offense_category__rank=u'MAJ')
+	registers = Register.objects.filter(offense__offense_category__rank=u'MAJOR')
 	context = {
 			'registers':registers,
 			'full_name':request.user.get_full_name(),

@@ -28,7 +28,7 @@ class Register(models.Model):
 	
 	
 	def __unicode__(self):
-		return 'IR Number: %d    Complainant %s' % ( self.ir_number, self.complainant)
+		return 'Report book: %s    Complainant %s' % ( self.reportbook, self.complainant)
 
 class Remark(models.Model):
 	description = models.CharField(max_length=80,help_text="How the case ended,e.g. On-going Invest., On-Trial,Case Closed")

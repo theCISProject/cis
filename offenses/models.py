@@ -2,12 +2,12 @@ from django.db import models
 
 class OffenseCategory(models.Model):
 	SECTION_CHOICES = (
-		('CRI','Criminal Offenses'),
-		('TRA','Traffic Offenses'),
+		('CRIMINAL','Criminal Offenses'),
+		('TRAFFIC','Traffic Offenses'),
 	)
 	RANK_CHOICES = (
-		('MAJ','Major Offense'),
-		('MIN','Minor Offense'),
+		('MAJOR','Major Offense'),
+		('MINOR','Minor Offense'),
 	)
 	offense_section = models.CharField(max_length=20,help_text='Register offense category within criminal/traffic offenses',choices=SECTION_CHOICES,default=SECTION_CHOICES[0])
 	rank = models.CharField(max_length=14,help_text='Rank crime category into major or minor crimes',choices=RANK_CHOICES,default=RANK_CHOICES[0])

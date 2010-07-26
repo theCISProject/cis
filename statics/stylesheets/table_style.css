@@ -1,0 +1,194 @@
+
+/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+body {
+	padding:0;
+	border:0;
+	margin:0;
+	font-size:12px;
+	font-family: verdana,arial,sans-serif;
+	color:#545454;
+	min-width: 800px;
+	} 
+kbd
+	{
+	background-color:#eeeeee;
+	padding:2px;
+	border:1px solid #dddddd;
+	border-bottom-color:#999999;
+	border-left-color:#999999;
+	}
+kbd, code
+	{
+	font-family:'andale mono','lucida console','courier new',monospace;
+	font-size:1em;
+	}
+code
+	{
+	font-family:'andale mono','lucida console','courier new',monospace;
+	font-size:1em;
+	}
+p
+	{
+	line-height:1.6em;
+	margin:0 0 1em 0;
+	}
+p a
+	{
+	font-weight:normal;
+	outline:none;
+	}
+p a:link,
+p a:visited
+	{
+	color:#333;
+	text-decoration:underline;
+	}
+p a:hover
+	{
+	color:#fff;
+	text-decoration:none;
+	background:#000;
+	}
+p a:active
+	{
+	color:#000;
+	text-decoration:underline;
+	}
+h1
+	{
+	font-weight:lighter;
+	font-family:georgia, times new roman, times, georgia, palatino, serif;
+	text-align:center;
+	margin-top:0.6em;
+	color:#000;
+	font-size:2em;
+	}
+h2
+	{
+	font-weight:lighter;
+	font-family:verdana,arial,sans-serif;
+	margin-top:1em;
+	color:#333;
+	letter-spacing:1px;
+	font-size:1.2em;
+	}
+h2 span
+	{
+	font-variant:small-caps;
+	text-transform:none;
+	}
+table
+	{
+	width:auto;
+	padding: 0;
+	margin: 0 auto 1.5em auto;
+	border-left: 1px solid #C1DAD7;
+	border-collapse:collapse;
+	}
+caption
+	{
+	padding: 0 0 5px 0;
+	margin:0 auto;
+	width:auto;
+	font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	text-align: right;
+	}
+th
+	{
+	font: bold 10px/22px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #4f6b72;
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	border-top: 1px solid #C1DAD7;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	text-align:center;
+	padding: 8px 12px 4px 12px;
+	background: #CAE8EA url(/statics/images/bg_header.jpg) no-repeat;
+	vertical-align:middle;
+	}
+td
+	{
+	font: normal 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	padding: 6px 12px 6px 12px;
+	color: #4f6b72;
+	text-align:center;
+	}
+/* Alternate row style */
+tr.alt
+	{
+	background: #F5FAFA;
+	color: #797268;
+	}
+/* The current cell */
+table tbody tr td.currentCell,
+table tbody tr td:hover,
+table tbody tr.alt td:hover
+	{
+	background-color:#aaFAFA;
+	}
+/* Normal row hover styles */ 
+table tr.rowHover td,  /* Internet Explorer less than 7 (and 7 in quirks mode) requires a specific class */
+tr:hover td            /* All others can use the :hover pseudo */
+	{
+	background-color:#daFAFA;
+	}  
+/* Alternate row hover styles */
+tr.alt:hover td
+	{
+	background-color:#caFAFA;
+	}    
+/* Column "cell" highlighting */
+table tr td.rowHover
+	{
+	background-color:#eaFAFA;
+	}
+/* Header highlighting */
+table tr th.rowHover
+	{
+	color:#222;
+	}   
+/* Row select styles */ 
+table tbody tr.alt.rowSelect,   /* Everything but Internet Explorer (IE treats this rule as being tr.rowSelect) */
+table tbody tr.alt.rowSelect td
+	{
+	background-color:#597bc6;
+	color:#eee !important;
+	}
+table tbody tr.rowSelect, /* All browsers */
+table tbody tr.rowSelect td
+	{
+	background-color:#6783cb;
+	color:#fff !important;         
+	}
+
+tr.rowSelect td.rowHover,
+tr.rowSelect:hover td
+	{
+	background-color:#6783bb;
+	}
+tr.alt.rowSelect td.rowHover,
+tr.alt.rowSelect:hover td
+	{
+	background-color:#597bb6;
+	}
+table tr.rowSelect td:hover,
+tr.rowSelect td.currentCell
+	{
+	background-color:#5783bb;
+	}
+table tr.alt.rowSelect td:hover
+	{
+	background-color:#497bb6;
+	}
+/* Just for the demo, make the cursor a pointer if the table rows are selectable */
+table.rowselect-rowSelect tbody td
+	{
+	cursor:pointer;
+	}

@@ -16,8 +16,7 @@ religion_list=['christian','budha','hindus','islam','pagan']
 class Util():
 	def resampleRegister(self,startnum,endnum):
 		register = Register()
-		for count in range(1,60):
-			register.ir_number = count
+		for count in range(1,20):
 			register.reportbook = ReportBook.objects.get(pk=random.randint(1,ReportBook.objects.count()))
 			register.complainant = Complainant.objects.get(pk=random.randint(1,Complainant.objects.count()))
 			register.property = Property.objects.get(pk=random.randint(1,Property.objects.count()))

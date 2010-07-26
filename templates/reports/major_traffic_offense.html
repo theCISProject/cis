@@ -1,12 +1,53 @@
 {% extends "core-layout.html" %}
 {% block title %}Major Traffic Offenses {% endblock %}
+{% block javascripts %}
+	{{ block.super }}
+	<script type="text/javascript" src="/statics/javascripts/tableActions.js"></script>
+	<script type="text/javascript">
+		//<![CDATA[
+
+		/*
+
+			Testing the use of an Object method as a callback parameter.
+			The first table's className has been given the class "rowselectcallback-myObject-testMethod"
+			which is translated to the Object reference "myObject.testMethod"
+
+		*/
+		var myObject = {
+			testMethod:function(details) {
+					var total;
+					// We are removing a row, always enable this action
+					if(details.remove) {
+							total = details.rows.length ? details.rows.length - 1 : 0;
+					// We are adding a row
+					} else {
+							// Only if no TH tags located
+							if(details.row.getElementsByTagName("th").length != 0) {
+									// return false to tell the script not to select this row
+									return false;
+							};
+							total = details.rows.length + 1;
+					};
+					document.getElementById('selectResults').innerHTML = total + " row" + (total != 1 ? "s" : "") + " currently selected";
+					// Return TRUE or FALSE to tell the script to enable the ADD/REMOVE action
+					return true;
+			}
+		};
+
+		//]]>
+	</script>
+{% endblock %}
+{% block stylesheets %}
+	{{ block.super }}
+	<link href="/statics/stylesheets/table_style.css" rel="stylesheet" type="text/css" />
+{% endblock %}
 {% block navigation %}
 {% if user.is_authenticated %}
 <ul>	
-	<li><a href="#">Map</a></li>
-	<li><a href="#">Alerts</a></li>
-	<li><a href="#">Users</a></li>
-	<li><a href="#">Stations</a></li>
+	<li><a href="">Map</a></li>
+	<li><a href="">Alerts</a></li>
+	<li><a href="/core/userlist">Post Users</a></li>
+	<li><a href="">Stations</a></li>
 	<li class="current_page_item" ><a href="/reports/mto">Reports</a></li>
 	<li><a href="/charts">Charts</a></li>
 	<li><a href="{% url dashboard %}">Dashboard</a></li>
@@ -16,19 +57,50 @@
 {% block content %}
 	{% if user.is_authenticated %}
 		{% if registers %}
-			<table>
+			<table class="rowstylealt-alt rowstylehover-rowHover colstylehover-rowHover rowselect-rowSelect rowselectcallback-myObject-testMethod cellhover-currentCell">
+			<thead>
+				<tr>
+					<th>Report Book</th>
+					<th>Complainant</th>
+					<th>Officer In charge</th>
+					<th>Offense Commited</th>
+					<th>Accused person</th>
+					<th>Investigation results</th>
+					<th>Investigation remarks</th>
+				</tr>
+			</thead>
+			<tbody>
 			{% for register in registers %}
 					<tr>
-						<td>{{ register.ir_number }}</td>
 						<td>{{ register.reportbook }}</td>
 						<td>{{ register.complainant }}</td>
+						<td>{{ register.officer }}</td>
 						<td>{{ register.offense }}</td>
+						<td>{{ register.accused }}</td>
+						<td>{{ register.results }}</td>
+						<td>{{ registser.remarks }}</td>
 					</tr>
 			{% endfor %}
+			</tbody>
 			</table>
 		{% else %}
 			<p>No Major Traffic offenses!</p>
 		{% endif %}
 
 	{% endif %}
+{% endblock %}
+{% block sidebar %}
+<ul>
+	<li>
+		<h2>Charts &amp; Graphs</h2>
+		<ul>
+			<li><a href="">Major Traffic Offenses</a></li>
+			<li><a href="">Minor Traffic Offenses</a></li>
+			<li><a href="">Major Criminal Offenses</a></li>
+			<li><a href="">Minor Criminal Offenses</a></li>
+			<li><a href="">All Criminal Offenses</a></li>
+			<li><a href="">All Traffic Offenses</a></li>
+		</ul>
+	</li>
+  </ul>
 {% endblock %}
