@@ -9,14 +9,41 @@
 
 <!--Map specific script... later moved to it's own file-->
 <script>
+var stationByID = {};
+{% for station in stations %}
+stationByID[{{station.id}}] = {name: "{{station.name}}", 
+                               lat: {{station.point.y}},
+                               lng: {{station.point.x}},
+                              };
+{% endfor %}
+
 var map, geocoder, current_object;
 
 function initialize() {
     if (GBrowserIsCompatible()) {
         map = new GMap2(document.getElementById('map'));
-        map.setCenter(new GLatLng(-6.369028, 34.888822), 6);
+        map.setCenter(new GLatLng(-6.7723525308277601, 39.2067718451280030), 10);
         map.setUIToDefault();
         geocoder = new GClientGeocoder();
+
+        // add samplingpoint marker to the map
+        var markers = [];
+        count = 0;
+        for (var i in stationByID) {
+            var sPoint = stationByID[i];
+            var point = new GLatLng(sPoint.lat, sPoint.lng);
+            
+            var orangeIcon = new GIcon(G_DEFAULT_ICON);
+            orangeIcon.image = "/statics/images/green_MarkerG.png";
+
+            // Set up our GMarkerOptions object
+            markerOptions = { icon:orangeIcon };
+            
+            marker = new GMarker(point,markerOptions);
+            map.addOverlay(marker);
+            markers[count] = marker;
+            count++;
+        }
     }
 }
 
@@ -86,11 +113,13 @@ function initialize() {
 				<li>
 					<h3 align="center">All Criminal Offenses</h3>
 					<ul>
-				<li><h1 align="right">{{ criminal_offenses }}</h1></li>
+						<li><h1 align="right">{{ criminal_offenses }}</h1></li>
+					</ul>
 				<li>
 					<h3 align="center">All Traffic Offenses</h3>
 					<ul>
-				<li><h1 align="right">{{ traffic_offenses }}</h1></li>
+						<li><h1 align="right">{{ traffic_offenses }}</h1></li>
+					</ul>
 			</ul>
 {% endblock %}
 </body>

@@ -9,7 +9,7 @@ GMAP = GoogleMap(key='abcdefg') # Can also set GOOGLE_MAPS_API_KEY in settings
 class GoogleAdmin(admin.OSMGeoAdmin):
     extra_js = [GMAP.api_url + GMAP.key]
     map_template = 'gis/admin/google.html'
-    list_display=('name','code','added_date','modified_date')
+    list_display=('name','code','point','added_date','modified_date')
     search_fields=['name','code']
 
 class CountryAdmin(admin.ModelAdmin):

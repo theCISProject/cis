@@ -55,9 +55,9 @@ class Station(Location):
         A Station is a police station where crimes a reported.
     """
     ward = models.ForeignKey(Ward)
-#    point = models.PointField()
+    point = models.PointField(blank=True, null=True)
     
-#    objects = models.GeoManager()
+    objects = models.GeoManager()
     
     class Meta:
         verbose_name = "police station"

@@ -22,13 +22,17 @@ def dashboard(request):
     minor_offenses = Register.objects.filter(offense__offense_category__rank=u'MINOR',)
     criminal_offenses = Register.objects.filter(offense__offense_category__offense_section=u'CRIMINAL',)
     traffic_offenses = Register.objects.filter(offense__offense_category__offense_section=u'TRAFFIC',)
+    
+    stations = Station.objects.all()
     context = {
 			'all_offenses':all_offenses.count(),
 			'major_offenses':major_offenses.count(),
 			'minor_offenses':minor_offenses.count(),
 			'criminal_offenses':criminal_offenses.count(),
 			'traffic_offenses':traffic_offenses.count(),
+            'stations' : stations
 	}
+    
     return render_to_response(
                               "dashboard.html", 
                               context,
