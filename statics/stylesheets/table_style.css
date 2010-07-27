@@ -4,15 +4,7 @@ Design by Free CSS Templates
 http://www.freecsstemplates.org
 Released for free under a Creative Commons Attribution 2.5 License
 */
-body {
-	padding:0;
-	border:0;
-	margin:0;
-	font-size:12px;
-	font-family: verdana,arial,sans-serif;
-	color:#545454;
-	min-width: 800px;
-	} 
+
 kbd
 	{
 	background-color:#eeeeee;
@@ -83,7 +75,7 @@ h2 span
 	}
 table
 	{
-	width:auto;
+	width:100%;
 	padding: 0;
 	margin: 0 auto 1.5em auto;
 	border-left: 1px solid #C1DAD7;
