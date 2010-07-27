@@ -37,11 +37,11 @@
 {% block navigation %}
 {% if user.is_authenticated %}
 <ul>	
-	<li><a href="#">Map</a></li>
-	<li><a href="#">Alerts</a></li>
-	<li><a href="#">Users</a></li>
-	<li><a href="#">Stations</a></li>
-	<li><a href="/reports/mto">Reports</a></li>
+	<li><a href="">Map</a></li>
+	<li><a href="">Alerts</a></li>
+	<li><a href="/core/userlist">Post Users</a></li>
+	<li><a href="">Stations</a></li>
+	<li><a href="{% url offenses %}">Reports</a></li>
 	<li class="current_page_item"><a href="/charts">Charts</a></li>
 	<li><a href="{% url dashboard %}">Dashboard</a></li>
 </ul>
