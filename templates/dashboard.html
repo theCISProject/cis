@@ -64,29 +64,33 @@ function initialize() {
 <!--  this is how to put stuff on the sidebar -->
 			<ul>
 				<li>
-					<h2>Crime Statistics Summary</h2>
+					<h3>Offense Statistics Summary</h3>
 					<hr />
-					<h2 align="center">Today</h2>
+					<h3 align="center">All Offenses</h3>
 					<ul>
-					    <li><h1 align="right">12</h1></li>
+					    <li><h1 align="right">{{ all_offenses }}</h1></li>
 					</ul>
 				</li>
 				<li>
-					<h2 align="center">This Week</h2>
+					<h3 align="center">All Major Offenses</h3>
 					<ul>
-					    <li><h1 align="right">520</h1></li>
+					    <li><h1 align="right">{{ major_offenses }}</h1></li>
 					</ul>
 				</li>
 				<li>
-					<h2 align="center">This Month</h2>
+					<h3 align="center">All Minor Offenses</h3>
 					<ul>
-					    <li><h1 align="right">1220</h1></li>
+					    <li><h1 align="right">{{ minor_offenses }}</h1></li>
 					</ul>
 				</li>
 				<li>
-					<h2 align="center">This Year</h2>
+					<h3 align="center">All Criminal Offenses</h3>
 					<ul>
-				<li><h1 align="right">123420</h1></li>
+				<li><h1 align="right">{{ criminal_offenses }}</h1></li>
+				<li>
+					<h3 align="center">All Traffic Offenses</h3>
+					<ul>
+				<li><h1 align="right">{{ traffic_offenses }}</h1></li>
 			</ul>
 {% endblock %}
 </body>

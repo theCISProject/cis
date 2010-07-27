@@ -15,7 +15,6 @@ from locations.models import Station
 '''
 
 class Register(models.Model):
-	ir_number = models.IntegerField('IR Number',help_text="Investigation Number, Integer counts from 1 yearly")
 	reportbook = models.ForeignKey('ReportBook',help_text="Report book number,[Number/Date]")
 	complainant = models.ForeignKey('Complainant',help_text="Details of complainant")
 	property = models.ForeignKey('Property',help_text="Stolen and recovered property's worth")
@@ -29,7 +28,7 @@ class Register(models.Model):
 	
 	
 	def __unicode__(self):
-		return 'IR Number: %d    Complainant %s' % ( self.ir_number, self.complainant)
+		return 'Report book: %s    Complainant %s' % ( self.reportbook, self.complainant)
 
 class Remark(models.Model):
 	description = models.CharField(max_length=80,help_text="How the case ended,e.g. On-going Invest., On-Trial,Case Closed")
