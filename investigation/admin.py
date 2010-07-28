@@ -4,13 +4,14 @@
 from django.contrib import admin
 
 from investigation.models import *
+from offenses.models import Offense, OffenseCategory
+from locations.models import Station
 
 class RegisterAdmin(admin.ModelAdmin):
 	list_display=('reportbook','complainant','accused','offense','results')
 	list_filter=('reportbook','offense',)
 	list_per_page=50
-	search_fields=['reportbook__ir_number','offense__offense_title',
-				'offense__offense_category',]
+	search_fields=['court_case_number','complainant__first_name','complainant__last_name']
 
 class AccusedAdmin(admin.ModelAdmin):
 	list_display=('first_name','last_name','age','gender','nationality')
@@ -39,7 +40,7 @@ class PropertyAdmin(admin.ModelAdmin):
 
 class ResultAdmin(admin.ModelAdmin):
 	list_display=('explanation','date')
-	search_fields=['explation']
+	search_fields=['explanation']
 
 class RemarkAdmin(admin.ModelAdmin):
 	list_display=('description',)

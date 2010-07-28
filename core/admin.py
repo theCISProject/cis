@@ -8,7 +8,7 @@ class StationPoliceAdmin(admin.ModelAdmin):
 
 class PoliceProfileAdmin(admin.ModelAdmin):
 	list_display=('police','station','phone_number','email','created_date')
-	search_fields=['police__first_name','police__last_name','police__police_code','station__name','station__ward']
+	search_fields=['police__username','police__first_name','police__last_name','station__name','phone_number','email']
 
 admin.site.register(StationPolice,StationPoliceAdmin)
 admin.site.register(PoliceProfile,PoliceProfileAdmin)
