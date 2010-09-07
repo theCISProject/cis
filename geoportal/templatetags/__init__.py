@@ -1,0 +1,1 @@
+from geoportal.templatetags import geoportal_tags

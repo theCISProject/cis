@@ -1,0 +1,99 @@
+<div id="{{ map_var }}_map" style="width: {{ options.width }}px; height: {{ options.height }}px;"></div>
+
+<script type="text/javascript">
+	var {{ map_var }} = {};
+	{{ map_var }}.viewer = null;
+	{{ map_var }}.re = new RegExp("^SRID=\d+;(.+)", "i");
+	{{ map_var }}.layers = {};
+	{{ map_var }}.wkt_f = new OpenLayers.Format.WKT();
+	{{ map_var }}.is_collection = {{ is_collection|yesno:"true,false" }};
+	{{ map_var }}.collection_type = '{{ collection_type }}';
+	{{ map_var }}.is_linestring = {{ is_linestring|yesno:"true,false" }};
+	{{ map_var }}.is_polygon = {{ is_polygon|yesno:"true,false" }};
+	{{ map_var }}.is_point = {{ is_point|yesno:"true,false" }};
+
+	{{ map_var }}.get_ewkt = function(feat){return 'SRID={{ srid }};' + {{ map_var }}.wkt_f.write(feat);}
+
+	{{ map_var }}.read_wkt = function(wkt){
+		var match = {{ map_var }}.re.exec(wkt);
+		if (match){wkt = match[1];}
+		return {{ map_var }}.wkt_f.read(wkt);
+	}
+
+	{{ map_var }}.write_wkt = function(feat){
+		if ({{ map_var }}.is_collection){ {{ map_var }}.num_geom = feat.geometry.components.length;}
+		else { {{ map_var }}.num_geom = 1;}
+	}
+
+	{{ map_var }}.load = function(div_id, mode, territory, crs, dispcrs, proxy){
+		var options = new Object();
+		if (mode) options.mode = mode;
+		if (territory) options.territory = territory;
+		if (crs) options.projection = crs;
+		if (dispcrs) options.displayProjection = dispcrs;
+		if (proxy) options.proxy = proxy;
+		options.nameInstance = '{{ map_var }}';
+		options.apiKey = '{{ api_key }}';
+		options[options.apiKey] = {
+			tokenServer:{url:'http://jeton-api.ign.fr',ttl:600},
+			tokenTimeOut:600,
+			bounds: [-180.0,-90.0,180.0,90.0],
+			allowedGeoportalLayers:[],
+			resources:{}
+		};
+		{% for layer in layers %}
+		options[options.apiKey].allowedGeoportalLayers.push('{{ layer.name }}');
+		options[options.apiKey].resources['{{ layer.name }}'] = {name:'{{ layer.resource_name }}',type:'WMSC',url:'{{ wms_url }}'};
+		{% endfor %}
+		{{ map_var }}.viewer = new Geoportal.Viewer.Default(div_id, options);
+	}
+
+	{{ map_var }}.init = function(){
+		if ({{ map_var }}.viewer != null) { return; }
+		{{ map_var }}.load("{{ map_var }}_map", "mini");
+		{% for layer in layers %}
+		{{ map_var }}.viewer.addGeoportalLayer('{{ layer.name }}', {opacity: {{ layer.opacity }}, name: '{{ layer.switcher_name }}', buffer: 1, transitionEffect: 'resize'});
+		{% endfor %}
+		var styleMap = new OpenLayers.StyleMap(OpenLayers.Util.applyDefaults({
+				fillColor: "#{{ options.color }}",
+				fillOpacity: {{ options.opacity|escapejs }},
+				{% if is_linestring %}strokeWidth: 3,{% endif %}
+				strokeColor: '#{{ options.color }}'},
+			OpenLayers.Feature.Vector.style["default"]))
+		{{ map_var }}.layers.vector = new OpenLayers.Layer.Vector(
+				"{{ field_name }}",
+				{styleMap: styleMap{% if not options.visible %}, visibility: false{% endif %} });
+
+		{{ map_var }}.viewer.map.addLayer({{ map_var }}.layers.vector);
+
+		var wkt = '{{ wkt }}';
+		var geom = {{ map_var }}.read_wkt(wkt);
+		geom = new OpenLayers.Feature.Vector(geom.geometry.transform(new OpenLayers.Projection('EPSG:{{ srid }}'), {{ map_var }}.viewer.map.getProjection()));
+		{{ map_var }}.write_wkt(geom);
+		if ({{ map_var }}.is_collection){
+			for (var i = 0; i < {{ map_var }}.num_geom; i++){
+				{{ map_var }}.layers.vector.addFeatures([new OpenLayers.Feature.Vector(geom.geometry.components[i].clone())]);
+			}
+		} else {
+			{{ map_var }}.layers.vector.addFeatures([geom]);
+		}
+		{{ map_var }}.viewer.map.zoomToExtent(geom.geometry.getBounds());
+		{{ map_var }}.viewer.map.zoomToExtent(geom.geometry.getBounds());
+		if ({{ map_var }}.is_point){
+			{{ map_var }}.viewer.map.zoomTo({{ point_zoom }});
+		}
+		{% if options.zoom %}
+		{{ map_var }}.viewer.map.zoomTo({{ options.zoom }});{% endif %}
+
+		{% if not options.navigation %}
+		{{ map_var }}.viewer.map.getControlsByClass('OpenLayers.Control.Navigation')[0].deactivate();
+		{{ map_var }}.viewer.map.getControlsByClass('OpenLayers.Control.KeyboardDefaults')[0].deactivate();{% endif %}
+	};
+	{{ map_var }}.init();
+</script>
+
+<style type="text/css">
+	.gpMainMapCell, .gpMainMap { border: none; }
+	.gpMainMap a { font-size: 0.7em; }
+</style>
+

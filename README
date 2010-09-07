@@ -82,3 +82,12 @@ cis/application_name/templates/
 	main content portions. within the confines of the application you're working in, you can
 	make templates local and relative to the application you create.
 
+Dependencies
+	GeoDjango Dependencies (for google maps)
+	- Postgis
+	- Libgdal
+	- Python-gdal
+	Open Flash charts
+	- PyOFC2 http://github.com/theCISProject/cis
+	- Python-setuptools (for easy_install)
+	- Django-1.1

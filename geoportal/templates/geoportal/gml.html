@@ -1,0 +1,89 @@
+<script type="text/javascript">
+	var {{ format }} = {}
+	{{ format }}.extract = {{ extract|yesno:"true,false" }};
+	{% ifequal format 'kml' %}
+	{{ format }}.format = new OpenLayers.Format.KML({
+		extractStyles: {{ format }}.extract,
+		extractAttributes: {{ format }}.extract,
+		maxDepth: 2
+	});
+	{% endifequal %}{% ifequal format 'gpx' %}
+	{{ format }}.format = new OpenLayers.Format.GPX({
+		extractWaypoints: {{ format }}.extract,
+		extractTracks: {{ format }}.extract,
+		extractRoutes: {{ format }}.extract,
+		extractAttributes: {{ format }}.extract
+	});{% endifequal %}
+
+	{{ format }}.parseFeatures = function(request) {
+		features = {{ format }}.format.read(request.priv.responseText);
+		bounds = new OpenLayers.Bounds();
+		for (var feat in features) {
+			bounds.extend(features[feat].geometry.getBounds());
+		}
+		bounds.transform(new OpenLayers.Projection('EPSG:4326'), {{ map_var }}.viewer.map.getProjection());{% if focus %}
+		{{ map_var }}.viewer.map.zoomToExtent(bounds);{% endif %}
+	}
+
+	{{ format }}.protocol = new OpenLayers.Protocol.HTTP({
+		url: '{{ url }}',
+		format: {{ format }}.format,
+		callback: {{ format }}.parseFeatures,
+	});
+	{{ format }}.protocol.read();{# doing this explicitly triggers the callback #}
+
+	{% if style or not extract %}
+	{{ format }}.styleMap = new OpenLayers.StyleMap(OpenLayers.Util.applyDefaults({
+			fillColor: '#{{ color }}',
+			strokeColor: '#{{ color }}',
+			fillOpacity: {{ opacity|escapejs }},
+			{% if style %}strokeOpacity: {{ opacity|escapejs }},{% endif %}
+			strokeWidth: {{ width }},
+		},
+		OpenLayers.Feature.Vector.style['default'])
+	);{% endif %}
+
+	{% with format|upper as type %}
+	{{ format }}.vector = new OpenLayers.Layer.Vector('{{ type }}', {
+		projection: new OpenLayers.Projection('EPSG:4326'),
+		strategies: [new OpenLayers.Strategy.Fixed()],
+		protocol: {{ format }}.protocol,{% if style or not extract %}
+		styleMap: {{ format }}.styleMap{% endif %}
+	});
+	{% endwith %}
+
+	{{ map_var }}.viewer.map.addLayer({{ format }}.vector);
+
+	{% if popup %}
+	{{ map_var }}.initPopup = function() {
+		{{ map_var }}.selectControl = new OpenLayers.Control.SelectFeature({{ map_var }}.viewer.map.layers[{{ map_var }}.viewer.map.layers.length - 1],
+				{onSelect: {{ map_var }}.onFeatureSelect, onUnselect: {{ map_var }}.onFeatureUnselect}
+		);
+		{{ map_var }}.viewer.map.addControl({{ map_var }}.selectControl);
+		{{ map_var }}.selectControl.activate();
+	}
+
+	{{ map_var }}.onPopupClose = function(event) {
+	 {{ map_var }}.selectControl.unselect({{ map_var }}.selectedFeature);
+	}
+
+	{{ map_var }}.onFeatureSelect = function(feature) {
+		{{ map_var }}.selectedFeature = feature;
+		console.log(feature);
+		popup = new OpenLayers.Popup.FramedCloud("chicken",
+				feature.geometry.getBounds().getCenterLonLat(),
+				new OpenLayers.Size(100, 100),
+				feature.attributes.desc{% ifequal format 'kml' %}ription{% endifequal %},
+				null, true, {{ map_var }}.onPopupClose);
+		feature.popup = popup;
+		{{ map_var }}.viewer.map.addPopup(popup);
+	}
+
+	{{ map_var }}.onFeatureUnselect = function(feature) {
+		{{ map_var }}.viewer.map.removePopup(feature.popup);
+		feature.popup.destroy();
+		feature.popup = null;
+	}
+	{{ map_var }}.initPopup();
+	{% endif %}
+</script>
